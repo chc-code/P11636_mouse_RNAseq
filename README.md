@@ -30,7 +30,7 @@ The pipeline consists of the following steps:
 
 # Additional Enrichment Analysis  
 
-Beyond the default ORA and GSEA pathway enrichment analyses, the pipeline includes:  
+Beyond the default ORA and GSEA pathway enrichment analyses, we implemented additional enhancements. The corresponding code and dependency files are stored in the enrichment_plots folder.
 
 ### 1. Expanded Gene Sets  
 Additional gene sets for pathway enrichment analysis are available in `enrichment_plots/geneset/`:  
