@@ -1,0 +1,44 @@
+# Differential expression
+<br>
+
+
+Differential expression analysis criteria:absolute fold change >= 1.5 and FDR adjusted p value <= 0.1
+
+
+## Volcano plot
+
+```{r,echo=FALSE,results='asis', fig.align='center', fig.cap=figRef('Volcano_plot', 'Volcano plot for all comparisons', trunk.eval=file.exists('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable/result/FPAS_VS_PBS_min5_fdr0.1_DESeq2_volcanoEnhanced.png'))}
+  check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable/result/FPAS_VS_PBS_min5_fdr0.1_DESeq2_volcanoEnhanced.png')
+```
+
+## Summary of differential analysis
+
+
+### Overall table
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>**Table 3:** DEG numbers under FC &gt; 1.5 &amp; FDR adjusted p value &lt; 0.1</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Comparison </th>
+   <th style="text-align:right;"> Number of DEGs </th>
+   <th style="text-align:right;"> Up-regulated DEGs </th>
+   <th style="text-align:right;"> Down-regulated DEGs </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> FPAS_VS_PBS_min5_fdr0.1 </td>
+   <td style="text-align:right;"> 233 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 151 </td>
+  </tr>
+</tbody>
+</table>
+### deseq2_FPAS_VS_PBS
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='deseq2_FPAS_VS_PBS.deseq2.csv', row.names=1, escape=TRUE, digits=3, nsmall=2)
+```
+

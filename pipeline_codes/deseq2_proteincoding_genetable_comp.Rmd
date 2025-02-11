@@ -1,0 +1,44 @@
+
+# FPAS_VS_PBS
+
+
+## Comparison design
+
+
+```{r,echo=FALSE,results='asis'}
+print_table_from_file('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable/result/FPAS_VS_PBS.design', 0)
+```
+
+
+## Differential expressed genes
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='FPAS_VS_PBS_min5_fdr0.1_DESeq2_sig.csv', row.names=1, escape=TRUE, digits=0, nsmall=0)
+```
+
+
+## Volcano plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('FPAS_VS_PBS_min5_fdr0.1_DESeq2_volcanoEnhanced.png')
+```
+
+
+## Heatmap plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('FPAS_VS_PBS_min5_fdr0.1_geneAll_DESeq2-vsd-heatmap.png')
+```
+
+
+## PCA plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('FPAS_VS_PBS_min5_fdr0.1_geneAll_DESeq2-vsd-pca.png')
+```
+
+

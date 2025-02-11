@@ -1,0 +1,85 @@
+GO:0007229	integrin-mediated signaling pathway
+GO:0033622	integrin activation
+GO:0033623	regulation of integrin activation
+GO:0033624	negative regulation of integrin activation
+GO:0033625	positive regulation of integrin activation
+GO:0033626	positive regulation of integrin activation by cell surface receptor linked signal transduction
+GO:0033627	cell adhesion mediated by integrin
+GO:0033628	regulation of cell adhesion mediated by integrin
+GO:0033629	negative regulation of cell adhesion mediated by integrin
+GO:0033630	positive regulation of cell adhesion mediated by integrin
+GO:0033631	cell-cell adhesion mediated by integrin
+GO:0033632	regulation of cell-cell adhesion mediated by integrin
+GO:0033633	negative regulation of cell-cell adhesion mediated by integrin
+GO:0033634	positive regulation of cell-cell adhesion mediated by integrin
+GO:0045112	integrin biosynthetic process
+GO:0045113	regulation of integrin biosynthetic process
+GO:0045720	negative regulation of integrin biosynthetic process
+GO:0045726	positive regulation of integrin biosynthetic process
+GO:2001044	regulation of integrin-mediated signaling pathway
+GO:2001045	negative regulation of integrin-mediated signaling pathway
+GO:2001046	positive regulation of integrin-mediated signaling pathway
+GO:0008305	integrin complex
+GO:0034665	integrin alpha1-beta1 complex
+GO:0034666	integrin alpha2-beta1 complex
+GO:0034667	integrin alpha3-beta1 complex
+GO:0034668	integrin alpha4-beta1 complex
+GO:0034669	integrin alpha4-beta7 complex
+GO:0034676	integrin alpha6-beta4 complex
+GO:0034677	integrin alpha7-beta1 complex
+GO:0034678	integrin alpha8-beta1 complex
+GO:0034679	integrin alpha9-beta1 complex
+GO:0034680	integrin alpha10-beta1 complex
+GO:0034681	integrin alpha11-beta1 complex
+GO:0034683	integrin alphav-beta3 complex
+GO:0034684	integrin alphav-beta5 complex
+GO:0034685	integrin alphav-beta6 complex
+GO:0034686	integrin alphav-beta8 complex
+GO:0034687	integrin alphaL-beta2 complex
+GO:0035866	alphav-beta3 integrin-PKCalpha complex
+GO:0035867	alphav-beta3 integrin-IGF-1-IGF1R complex
+GO:0035868	alphav-beta3 integrin-HMGB1 complex
+GO:0070442	integrin alphaIIb-beta3 complex
+GO:0071065	alpha9-beta1 integrin-vascular cell adhesion molecule-1 complex
+GO:0071133	alpha9-beta1 integrin-ADAM8 complex
+WP488	Alpha6-Beta4 Integrin Signaling Pathway
+WP6	Integrin-mediated Cell Adhesion
+GO:0005178	integrin binding
+GO:0098640	integrin binding involved in cell-matrix adhesion
+R-MMU-216083	Integrin cell surface interactions
+R-MMU-3000171	Non-integrin membrane-ECM interactions
+R-MMU-354192	Integrin alphaIIb beta3 signaling
+R-MMU-354194	GRB2:SOS provides linkage to MAPK signaling for Integrins
+R-MMU-372708	p130Cas linkage to MAPK signaling for integrins
+R-MMU-399955	SEMA3A-Plexin repulsion signaling by inhibiting Integrin adhesion
+R-MMU-9006921	Integrin signaling
+WP_ALPHA_6_BETA_4_INTEGRIN_SIGNALING_PATHWAY	Alpha 6 beta 4 integrin signaling pathway
+WP_INTEGRINMEDIATED_CELL_ADHESION	Integrin-mediated cell adhesion
+GOCC_INTEGRIN_COMPLEX	"A protein complex that is composed of one alpha subunit and one beta subunit, both of which are members of the integrin superfamily of cell adhesion receptors; the complex spans the plasma membrane and binds to extracellular matrix ligands, cell-surface ligands, and soluble ligands. [PMID:17543136]"
+GOCC_TETRASPANIN_ENRICHED_MICRODOMAIN	"A pre-organized unit composed either of adhesion molecules (mainly integrins and members of the Ig superfamily), signaling receptors and/or enzyme-enriched plasma membrane domains that compartmentalizes cellular processes. Tetraspanin-enriched microdomains might be specially suited for the regulation of avidity of adhesion receptors and the compartmentalization of enzymatic activities. [GOC:ans, PMID:19709882, PMID:21930792]"
+GOBP_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"The attachment of a cell, either to another cell or to an underlying substrate such as the extracellular matrix, via an integrin, a heterodimeric adhesion receptor formed by the non-covalent association of particular alpha and beta subunits. [GOC:add, PMID:12213832, PMID:14754902]"
+GOBP_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"The attachment of one cell to another cell via an integrin, a heterodimeric adhesion receptor formed by the non-covalent association of particular alpha and beta subunits. [GOC:add, PMID:12213832, PMID:14754902]"
+GOBP_HEMIDESMOSOME_ASSEMBLY	"Assembly of hemidesmosomes, integrin-containing protein complexes that bind to laminin in the basal lamina. Hemidesmosomes form the contact between the basal surface of epithelial cells and the underlying basal lamina. [GOC:dgh, PMID:15983403]"
+GOBP_INTEGRIN_ACTIVATION	"The aggregation, arrangement and bonding together of an integrin, a heterodimeric adhesion receptor formed by the non-covalent association of particular alpha and beta subunits, that lead to the increased affinity of the integrin for its extracellular ligands. [GOC:add, PMID:12213832, PMID:14754902]"
+GOBP_INTEGRIN_BIOSYNTHETIC_PROCESS	"The chemical reactions and pathways resulting in the formation of integrins, a large family of transmembrane proteins that act as receptors for cell-adhesion molecules. [GOC:go_curators, ISBN:0198506732]"
+GOBP_INTEGRIN_MEDIATED_SIGNALING_PATHWAY	"The series of molecular signals initiated by an extracellular ligand binding to an integrin on the surface of a target cell, and ending with the regulation of a downstream cellular process, e.g. transcription. [GOC:mah, GOC:signaling]"
+GOBP_NEGATIVE_REGULATION_OF_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"Any process that stops, prevents, or reduces the frequency, rate, or extent of cell adhesion mediated by integrin. [GOC:add]"
+GOBP_POSITIVE_REGULATION_OF_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"Any process that activates or increases the frequency, rate, or extent of cell adhesion mediated by integrin. [GOC:add]"
+GOBP_POSITIVE_REGULATION_OF_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"Any process that activates or increases the frequency, rate, or extent of cell-cell adhesion mediated by integrin. [GOC:add]"
+GOBP_POSITIVE_REGULATION_OF_INTEGRIN_ACTIVATION	"Any process that activates or increases the frequency, rate, or extent of integrin activation. [GOC:add]"
+GOBP_POSITIVE_REGULATION_OF_INTEGRIN_MEDIATED_SIGNALING_PATHWAY	"Any process that activates or increases the frequency, rate or extent of integrin-mediated signaling pathway. [GOC:obol]"
+GOBP_REGULATION_OF_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"Any process that modulates the frequency, rate, or extent of cell adhesion mediated by integrin. [GOC:add]"
+GOBP_REGULATION_OF_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN	"Any process that modulates the frequency, rate, or extent of cell-cell adhesion mediated by integrin. [GOC:add]"
+GOBP_REGULATION_OF_INTEGRIN_ACTIVATION	"Any process that modulates the frequency, rate, or extent of integrin activation. [GOC:add]"
+GOBP_REGULATION_OF_INTEGRIN_MEDIATED_SIGNALING_PATHWAY	"Any process that modulates the frequency, rate or extent of integrin-mediated signaling pathway. [GOC:obol]"
+GOBP_SUBSTRATE_DEPENDENT_CELL_MIGRATION_CELL_ATTACHMENT_TO_SUBSTRATE	"The formation of adhesions that stabilize protrusions at the leading edge of a migrating cell; involves integrin activation, clustering, and the recruitment of structural and signaling components to nascent adhesions. [ISBN:0815316194, PMID:11944043, PMID:14657486]"
+GOMF_INTEGRIN_BINDING	Binding to an integrin. [GOC:ceb]
+GOMF_INTEGRIN_BINDING_INVOLVED_IN_CELL_MATRIX_ADHESION	Any integrin binding that occurs as part of the process of cell-matrix adhesion. [GOC:dos]
+REACTOME_GRB2_SOS_PROVIDES_LINKAGE_TO_MAPK_SIGNALING_FOR_INTEGRINS	GRB2:SOS provides linkage to MAPK signaling for Integrins
+REACTOME_INTEGRIN_CELL_SURFACE_INTERACTIONS	Integrin cell surface interactions
+REACTOME_INTEGRIN_SIGNALING	Integrin signaling
+REACTOME_NON_INTEGRIN_MEMBRANE_ECM_INTERACTIONS	Non-integrin membrane-ECM interactions
+REACTOME_P130CAS_LINKAGE_TO_MAPK_SIGNALING_FOR_INTEGRINS	p130Cas linkage to MAPK signaling for integrins
+REACTOME_SEMA3A_PLEXIN_REPULSION_SIGNALING_BY_INHIBITING_INTEGRIN_ADHESION	SEMA3A-Plexin repulsion signaling by inhibiting Integrin adhesion
+BIOCARTA_INTEGRIN_PATHWAY	Integrin Signaling Pathway
+

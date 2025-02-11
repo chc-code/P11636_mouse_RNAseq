@@ -1,0 +1,144 @@
+GO:0003136	negative regulation of heart induction by canonical Wnt signaling pathway
+GO:0003306	Wnt signaling pathway involved in heart development
+GO:0003307	regulation of Wnt signaling pathway involved in heart development
+GO:0003308	negative regulation of Wnt signaling pathway involved in heart development
+GO:0007223	Wnt signaling pathway, calcium modulating pathway
+GO:0016055	Wnt signaling pathway
+GO:0021874	Wnt signaling pathway involved in forebrain neuroblast division
+GO:0030111	regulation of Wnt signaling pathway
+GO:0030177	positive regulation of Wnt signaling pathway
+GO:0030178	negative regulation of Wnt signaling pathway
+GO:0035567	non-canonical Wnt signaling pathway
+GO:0038018	Wnt receptor catabolic process
+GO:0038030	non-canonical Wnt signaling pathway via MAPK cascade
+GO:0038031	non-canonical Wnt signaling pathway via JNK cascade
+GO:0044328	canonical Wnt signaling pathway involved in positive regulation of endothelial cell migration
+GO:0044329	canonical Wnt signaling pathway involved in positive regulation of cell-cell adhesion
+GO:0044330	canonical Wnt signaling pathway involved in positive regulation of wound healing
+GO:0044332	Wnt signaling pathway involved in dorsal/ventral axis specification
+GO:0044333	Wnt signaling pathway involved in digestive tract morphogenesis
+GO:0044334	canonical Wnt signaling pathway involved in positive regulation of epithelial to mesenchymal transition
+GO:0044335	canonical Wnt signaling pathway involved in neural crest cell differentiation
+GO:0044336	canonical Wnt signaling pathway involved in negative regulation of apoptotic process
+GO:0044337	canonical Wnt signaling pathway involved in positive regulation of apoptotic process
+GO:0044338	canonical Wnt signaling pathway involved in mesenchymal stem cell differentiation
+GO:0044339	canonical Wnt signaling pathway involved in osteoblast differentiation
+GO:0044340	canonical Wnt signaling pathway involved in regulation of cell proliferation
+GO:0044343	canonical Wnt signaling pathway involved in regulation of type B pancreatic cell proliferation
+GO:0060070	canonical Wnt signaling pathway
+GO:0060071	Wnt signaling pathway, planar cell polarity pathway
+GO:0060804	positive regulation of Wnt signaling pathway by BMP signaling pathway
+GO:0060823	canonical Wnt signaling pathway involved in neural plate anterior/posterior pattern formation
+GO:0060827	regulation of canonical Wnt signaling pathway involved in neural plate anterior/posterior pattern formation
+GO:0060828	regulation of canonical Wnt signaling pathway
+GO:0060829	negative regulation of canonical Wnt signaling pathway involved in neural plate anterior/posterior pattern formation
+GO:0060901	regulation of hair cycle by canonical Wnt signaling pathway
+GO:0061289	Wnt signaling pathway involved in kidney development
+GO:0061290	canonical Wnt signaling pathway involved in metanephric kidney development
+GO:0061310	canonical Wnt signaling pathway involved in cardiac neural crest cell differentiation involved in heart development
+GO:0061316	canonical Wnt signaling pathway involved in heart development
+GO:0061317	canonical Wnt signaling pathway involved in cardiac muscle cell fate commitment
+GO:0061324	canonical Wnt signaling pathway involved in positive regulation of cardiac outflow tract cell proliferation
+GO:0061341	non-canonical Wnt signaling pathway involved in heart development
+GO:0061355	Wnt protein secretion
+GO:0061356	regulation of Wnt protein secretion
+GO:0061357	positive regulation of Wnt protein secretion
+GO:0061358	negative regulation of Wnt protein secretion
+GO:0090081	regulation of heart induction by regulation of canonical Wnt signaling pathway
+GO:0090082	positive regulation of heart induction by negative regulation of canonical Wnt signaling pathway
+GO:0090090	negative regulation of canonical Wnt signaling pathway
+GO:0090244	Wnt signaling pathway involved in somitogenesis
+GO:0090263	positive regulation of canonical Wnt signaling pathway
+GO:0100012	regulation of heart induction by canonical Wnt signaling pathway
+GO:0198738	cell-cell signaling by wnt
+GO:1901229	regulation of non-canonical Wnt signaling pathway via JNK cascade
+GO:1901231	positive regulation of non-canonical Wnt signaling pathway via JNK cascade
+GO:1901295	regulation of canonical Wnt signaling pathway involved in cardiac muscle cell fate commitment
+GO:1901296	negative regulation of canonical Wnt signaling pathway involved in cardiac muscle cell fate commitment
+GO:1901297	positive regulation of canonical Wnt signaling pathway involved in cardiac muscle cell fate commitment
+GO:1904701	Wnt-Frizzled-LRP5/6 complex assembly
+GO:1904711	regulation of Wnt-Frizzled-LRP5/6 complex assembly
+GO:1904723	negative regulation of Wnt-Frizzled-LRP5/6 complex assembly
+GO:1904887	Wnt signalosome assembly
+GO:1904953	Wnt signaling pathway involved in midbrain dopaminergic neuron differentiation
+GO:1904954	canonical Wnt signaling pathway involved in midbrain dopaminergic neuron differentiation
+GO:1905066	regulation of canonical Wnt signaling pathway involved in heart development
+GO:1905067	negative regulation of canonical Wnt signaling pathway involved in heart development
+GO:1905068	positive regulation of canonical Wnt signaling pathway involved in heart development
+GO:1905239	regulation of canonical Wnt signaling pathway involved in osteoblast differentiation
+GO:1905240	negative regulation of canonical Wnt signaling pathway involved in osteoblast differentiation
+GO:1905424	regulation of Wnt-mediated midbrain dopaminergic neuron differentiation
+GO:1905426	positive regulation of Wnt-mediated midbrain dopaminergic neuron differentiation
+GO:1905438	non-canonical Wnt signaling pathway involved in midbrain dopaminergic neuron differentiation
+GO:1905474	canonical Wnt signaling pathway involved in stem cell proliferation
+GO:2000050	regulation of non-canonical Wnt signaling pathway
+GO:2000051	negative regulation of non-canonical Wnt signaling pathway
+GO:2000052	positive regulation of non-canonical Wnt signaling pathway
+GO:2000053	regulation of Wnt signaling pathway involved in dorsal/ventral axis specification
+GO:2000054	negative regulation of Wnt signaling pathway involved in dorsal/ventral axis specification
+GO:2000056	regulation of Wnt signaling pathway involved in digestive tract morphogenesis
+GO:2000057	negative regulation of Wnt signaling pathway involved in digestive tract morphogenesis
+GO:2000079	regulation of canonical Wnt signaling pathway involved in controlling type B pancreatic cell proliferation
+GO:2000080	negative regulation of canonical Wnt signaling pathway involved in controlling type B pancreatic cell proliferation
+GO:2000081	positive regulation of canonical Wnt signaling pathway involved in controlling type B pancreatic cell proliferation
+GO:2000095	regulation of Wnt signaling pathway, planar cell polarity pathway
+GO:2000096	positive regulation of Wnt signaling pathway, planar cell polarity pathway
+GO:2000286	receptor internalization involved in canonical Wnt signaling pathway
+GO:1990851	Wnt-Frizzled-LRP5/6 complex
+GO:1990909	Wnt signalosome
+WP3857	Wnt Signaling in Kidney Disease
+WP403	Wnt Signaling Pathway
+WP539	Wnt Signaling Pathway NetPath
+WP723	Wnt Signaling Pathway and Pluripotency
+GO:0017147	Wnt-protein binding
+GO:0042813	Wnt-activated receptor activity
+GO:0071936	coreceptor activity involved in Wnt signaling pathway
+GO:1904928	coreceptor activity involved in canonical Wnt signaling pathway
+GO:1904929	coreceptor activity involved in Wnt signaling pathway, planar cell polarity pathway
+R-MMU-195721	Signaling by WNT
+R-MMU-201681	TCF dependent signaling in response to WNT
+R-MMU-201688	WNT mediated activation of DVL
+R-MMU-3238698	WNT ligand biogenesis and trafficking
+R-MMU-3772470	Negative regulation of TCF-dependent signaling by WNT ligand antagonists
+R-MMU-3858494	Beta-catenin independent WNT signaling
+R-MMU-4641265	Repression of WNT target genes
+R-MMU-8951430	RUNX3 regulates WNT signaling
+mmu04310	Wnt signaling pathway
+WP_WNT_SIGNALING	Wnt signaling
+WP_WNT_SIGNALING_IN_KIDNEY_DISEASE	Wnt signaling in kidney disease
+WP_WNT_SIGNALING_PATHWAY	Wnt signaling pathway
+WP_WNT_SIGNALING_PATHWAY_AND_PLURIPOTENCY	Wnt signaling pathway and pluripotency
+GOCC_WNT_SIGNALOSOME	"A multiprotein protein complex containing membrane-localized Wnt receptors and cytosolic protein complexes, which is capable of transmitting the Wnt signal. Contains at least a Wnt protein, LRP5 or LRP6, a member of the Frizzled (Fz) family, Axin and and a Dishevelled (DVL) protein. [GOC:bf, GOC:PARL, PMID:22899650, PMID:25336320]"
+GOBP_CANONICAL_WNT_SIGNALING_PATHWAY	"A type of Wnt signaling pathway in which Wnt binding to its receptor on the surface of a target cell results in the by propagation of the molecular signals via beta-catenin, and end with a change in transcription of target genes. In this pathway, the activated receptor signals via downstream effectors that result in the inhibition of beta-catenin phosphorylation, thereby preventing degradation of beta-catenin. Stabilized beta-catenin can then accumulate and travel to the nucleus to trigger changes in transcription of target genes. [PMID:11532397, PMID:19619488]"
+GOBP_NEGATIVE_REGULATION_OF_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that decreases the rate, frequency, or extent of the Wnt signaling pathway through beta-catenin, the series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of the target cell, followed by propagation of the signal via beta-catenin, and ending with a change in transcription of target genes. [GOC:dph, GOC:tb]"
+GOBP_NEGATIVE_REGULATION_OF_NON_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that stops, prevents, or reduces the frequency, rate or extent of non-canonical Wnt signaling pathway. [GOC:obol, GOC:yaf]"
+GOBP_NEGATIVE_REGULATION_OF_WNT_SIGNALING_PATHWAY	"Any process that stops, prevents, or reduces the frequency, rate or extent of the Wnt signaling pathway. [GOC:dph, GOC:go_curators, GOC:tb]"
+GOBP_NON_CANONICAL_WNT_SIGNALING_PATHWAY	A type of Wnt signaling pathway in which Wnt binding to its receptor on the surface of a target cell results in the by propagation of the molecular signals via effectors other than beta-catenin. [PMID:37804416]
+GOBP_PLANAR_CELL_POLARITY_PATHWAY_INVOLVED_IN_AXIS_ELONGATION	"The series of molecular signals initiated by binding of a Wnt protein to a receptor on the surface of the target cell where activated receptors signal to modulate cytoskeletal elements and control cell polarity that contributes to axis elongation. [GOC:ascb_2009, GOC:dph, GOC:tb]"
+GOBP_POSITIVE_REGULATION_OF_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that increases the rate, frequency, or extent of the Wnt signaling pathway through beta-catenin, the series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of the target cell, followed by propagation of the signal via beta-catenin, and ending with a change in transcription of target genes. [GOC:tb]"
+GOBP_POSITIVE_REGULATION_OF_NON_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that activates or increases the frequency, rate or extent of non-canonical Wnt-activated signaling pathway. [GOC:obol, GOC:yaf]"
+GOBP_POSITIVE_REGULATION_OF_WNT_SIGNALING_PATHWAY	"Any process that activates or increases the frequency, rate or extent of Wnt signal transduction. [GOC:dph, GOC:go_curators, GOC:tb]"
+GOBP_POSITIVE_REGULATION_OF_WNT_SIGNALING_PATHWAY_PLANAR_CELL_POLARITY_PATHWAY	"Any process that activates or increases the frequency, rate or extent of Wnt signaling pathway, planar cell polarity pathway. [GOC:BHF]"
+GOBP_REGULATION_OF_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that modulates the rate, frequency, or extent of the Wnt signaling pathway through beta-catenin, the series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of the target cell, followed by propagation of the signal via beta-catenin, and ending with a change in transcription of target genes. [GOC:dph, GOC:sdb_2009, GOC:tb]"
+GOBP_REGULATION_OF_NON_CANONICAL_WNT_SIGNALING_PATHWAY	"Any process that modulates the frequency, rate or extent of non-canonical Wnt signaling pathway. [GOC:obol, GOC:yaf]"
+GOBP_REGULATION_OF_WNT_PROTEIN_SECRETION	"Any process that modulates the frequency, rate or extent of the controlled release of a Wnt protein from a cell. [GOC:bf, PMID:19223472]"
+GOBP_REGULATION_OF_WNT_SIGNALING_PATHWAY	"Any process that modulates the frequency, rate or extent of the activity of the Wnt signal transduction pathway. [GOC:dph, GOC:mah, GOC:tb]"
+GOBP_REGULATION_OF_WNT_SIGNALING_PATHWAY_PLANAR_CELL_POLARITY_PATHWAY	"Any process that modulates the frequency, rate or extent of Wnt signaling pathway, planar cell polarity pathway. [GOC:BHF]"
+GOBP_WNT_PROTEIN_SECRETION	"The controlled release of a Wnt protein from a cell. [GOC:bf, PMID:19223472]"
+GOBP_WNT_SIGNALING_PATHWAY	The series of molecular signals initiated by binding of a Wnt protein to a frizzled family receptor on the surface of a target cell and ending with a change in cell state. [PMID:11532397]
+GOBP_WNT_SIGNALING_PATHWAY_PLANAR_CELL_POLARITY_PATHWAY	"A type of non-canonical Wnt signaling pathway in which Wnt binding to its receptor on the surface of a target cell results in the activation small G proteins such as Rho, Rac, and Cdc42 which, in turn activate effectors, including C-Jun N-terminal kinase (JNK) and Rho kinase (Rok). The signaling ends with change in the transcription of target genes and/or reorganisation of the cytoskeleton. [PMID:11532397, PMID:25349257, PMID:28293032, PMID:37804416]"
+GOMF_WNT_PROTEIN_BINDING	"Binding to a Wnt-protein, a secreted growth factor involved in signaling. [GOC:jl]"
+GOMF_WNT_RECEPTOR_ACTIVITY	Combining with a Wnt protein and transmitting the signal across the plasma membrane to initiate a change in cell activity. [GOC:go_curators]
+REACTOME_BETA_CATENIN_INDEPENDENT_WNT_SIGNALING	Beta-catenin independent WNT signaling
+REACTOME_NEGATIVE_REGULATION_OF_TCF_DEPENDENT_SIGNALING_BY_WNT_LIGAND_ANTAGONISTS	Negative regulation of TCF-dependent signaling by WNT ligand antagonists
+REACTOME_REPRESSION_OF_WNT_TARGET_GENES	Repression of WNT target genes
+REACTOME_RUNX3_REGULATES_WNT_SIGNALING	RUNX3 regulates WNT signaling
+REACTOME_SIGNALING_BY_WNT	Signaling by WNT
+REACTOME_TCF_DEPENDENT_SIGNALING_IN_RESPONSE_TO_WNT	TCF dependent signaling in response to WNT
+REACTOME_WNT_LIGAND_BIOGENESIS_AND_TRAFFICKING	WNT ligand biogenesis and trafficking
+REACTOME_WNT_MEDIATED_ACTIVATION_OF_DVL	WNT mediated activation of DVL
+BIOCARTA_PS1_PATHWAY	Presenilin action in Notch and Wnt signaling
+BIOCARTA_WNT_LRP6_PATHWAY	Wnt/LRP6 Signalling
+BIOCARTA_WNT_PATHWAY	WNT Signaling Pathway
+SANSOM_WNT_PATHWAY_REQUIRE_MYC	Wnt target genes up-regulated after Cre-lox knockout of APC [GeneID=324] in the small intestine that require functional MYC [GeneID=4609].
+

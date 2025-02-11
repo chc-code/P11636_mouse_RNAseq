@@ -1,0 +1,31 @@
+WP2841	Focal Adhesion-PI3K-Akt-mTOR-signaling pathway
+WP3855	Dysregulated miRNA Targeting in Insulin/PI3K-AKT Signaling
+R-MMU-109704	PI3K Cascade
+R-MMU-1250342	PI3K events in ERBB4 signaling
+R-MMU-1963642	PI3K events in ERBB2 signaling
+R-MMU-198203	PI3K/AKT activation
+R-MMU-199418	Negative regulation of the PI3K/AKT network
+R-MMU-389357	CD28 dependent PI3K/Akt signaling
+R-MMU-6811558	PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling
+R-MMU-8851907	MET activates PI3K/AKT signaling
+R-MMU-9027276	Erythropoietin activates Phosphoinositide-3-kinase (PI3K)
+R-MMU-9603381	Activated NTRK3 signals through PI3K
+mmu04151	PI3K-Akt signaling pathway
+WP_DYSREGULATED_MIRNA_TARGETING_IN_INSULINPI3KAKT_SIGNALING	Dysregulated miRNA targeting in insulin/PI3K-AKT signaling
+WP_FOCAL_ADHESION_PI3KAKTMTOR_SIGNALING_PATHWAY	Focal adhesion: PI3K-Akt-mTOR signaling pathway
+GOCC_PHOSPHATIDYLINOSITOL_3_KINASE_COMPLEX	"A protein complex capable of phosphatidylinositol 3-kinase activity and containing subunits of any phosphatidylinositol 3-kinase (PI3K) enzyme. These complexes are divided in three classes (called I, II and III) that differ for their presence across taxonomic groups and for the type of their constituents. Catalytic subunits of phosphatidylinositol 3-kinase enzymes are present in all 3 classes; regulatory subunits of phosphatidylinositol 3-kinase enzymes are present in classes I and III; adaptor proteins have been observed in class II complexes and may be present in other classes too. [GOC:bf, PMID:24587488]"
+GOCC_PHOSPHATIDYLINOSITOL_3_KINASE_COMPLEX_CLASS_I	"A phosphatidylinositol 3-kinase complex that contains a catalytic and a regulatory subunit of a phosphatidylinositol 3-kinase (PI3K) enzyme, plus one or more adaptor proteins. Class I PI3Ks phosphorylate phosphatidylinositol [PI], phosphatidylinositol-4-phosphate [PI(4)P] and phosphatidylinositol-4,5-bisphosphate [PI(4,5)P2], and are divided into subclasses A and B according to the type of adaptor subunit with which they associate. The class I PI3K subfamily of genes comprises members in vertebrates, worm and fly, but none in yeast. [GOC:ha, PMID:24587488]"
+GOCC_PHOSPHATIDYLINOSITOL_3_KINASE_COMPLEX_CLASS_III	"A phosphatidylinositol 3-kinase complex that contains a catalytic class III phosphoinositide 3-kinase (PI3K) subunit bound to a regulatory (adaptor) subunit. Additional adaptor proteins may be present. Class III PI3Ks have a substrate specificity restricted to phosphatidylinositol (PI). [GOC:bf, PMID:9255069]"
+GOBP_PHOSPHATIDYLINOSITOL_3_KINASE_PROTEIN_KINASE_B_SIGNAL_TRANSDUCTION	"An intracellular signaling cassette that starts with phosphatidylinositol 3-kinase (PI3K) activation, production of phosphatidylinositol 3-phosphate (PI3P), activation of PDK1, which recruits and ending with the activation of protein kinase B (PKB, also known as Akt). PI3K is activated by cell surface receptors. Note that PTEN is an inhibitor of the pathway. [PMID:20517722, PMID:22952397]"
+GOMF_PHOSPHATIDYLINOSITOL_3_KINASE_ACTIVATOR_ACTIVITY	Binds to and increases the activity of a phosphatidylinositol 3-kinase (PI3K). [PMID:31686003]
+GOMF_PHOSPHATIDYLINOSITOL_3_KINASE_INHIBITOR_ACTIVITY	Binds to and decreases the activity of a phosphatidylinositol 3-kinase (PI3K). [PMID:31686003]
+GOMF_PHOSPHATIDYLINOSITOL_3_KINASE_REGULATOR_ACTIVITY	"Modulates the activity of a phosphatidylinositol 3-kinase (PI3K). Regulatory subunits can link a PI3K catalytic subunit to upstream signaling events and help position the catalytic subunits close to their lipid substrates. [GOC:bf, PMID:9255069]"
+REACTOME_CD28_DEPENDENT_PI3K_AKT_SIGNALING	CD28 dependent PI3K/Akt signaling
+REACTOME_ERYTHROPOIETIN_ACTIVATES_PHOSPHOINOSITIDE_3_KINASE_PI3K	Erythropoietin activates Phosphoinositide-3-kinase (PI3K)
+REACTOME_MET_ACTIVATES_PI3K_AKT_SIGNALING	MET activates PI3K/AKT signaling
+REACTOME_NEGATIVE_REGULATION_OF_THE_PI3K_AKT_NETWORK	Negative regulation of the PI3K/AKT network
+REACTOME_PI3K_AKT_ACTIVATION	PI3K/AKT activation
+REACTOME_PI3K_EVENTS_IN_ERBB2_SIGNALING	PI3K events in ERBB2 signaling
+REACTOME_PI3K_EVENTS_IN_ERBB4_SIGNALING	PI3K events in ERBB4 signaling
+BIOCARTA_CDC42RAC_PATHWAY	Role of PI3K subunit p85 in regulation of Actin Organization and Cell Migration
+

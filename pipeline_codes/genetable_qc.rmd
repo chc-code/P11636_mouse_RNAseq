@@ -1,0 +1,91 @@
+
+# P11636_RNAseq_mm10.count
+
+
+## Density plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.density.png')
+```
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.density.individual.png')
+```
+
+
+## PCA plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.PCA.bar.png')
+```
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.PCA.png')
+```
+
+
+## Heatmap plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.heatmap.png')
+```
+
+
+## Correlation plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.count.Correlation.png')
+```
+
+
+# P11636_RNAseq_mm10.proteincoding.count
+
+
+## Density plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.density.png')
+```
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.density.individual.png')
+```
+
+
+## PCA plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.PCA.bar.png')
+```
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.PCA.png')
+```
+
+
+## Heatmap plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.heatmap.png')
+```
+
+
+## Correlation plot
+
+
+```{r,echo=FALSE,results='asis'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.Correlation.png')
+```
+
+

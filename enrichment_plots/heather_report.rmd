@@ -1,0 +1,118 @@
+---
+title: "FPAS vs PBS"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 3
+    code_folding: hide
+    number_sections: true
+---
+
+
+```{css, echo=FALSE}
+#content{
+    max-width:1920px;
+}
+```
+
+```{r settings,echo=FALSE}
+  library(xfun)
+  library(knitr)
+  library(rmarkdown)
+  library(kableExtra)
+
+  root_dir = '/Users/files/work/cooperate/vivian/heather_rnaseq_redo_figure/20240801_11636_RNAseq_mouse/report'
+  setwd(root_dir)
+
+  source("WebGestaltReportFunctions.r")
+  source('function_chc.r')
+  source('gsea_funcs.R')
+  
+  knitr::opts_chunk$set(
+    include=TRUE, 
+    echo=FALSE, 
+    warning=FALSE, 
+    message=FALSE, 
+    results="asis"
+  )
+
+
+
+
+  task_name <- 'FPAS_VS_PBS'
+  compDeseq2File <- 'FPAS_VS_PBS_min5_fdr0.1_DESeq2_sig.csv'
+  deseq2=readFilesAndFormat(compDeseq2File)
+  geneCol=getGeneCol(deseq2)[["colName"]]
+  diffCol=getDiffCol(deseq2)[["colName"]]
+  diffCenterValue=getDiffCol(deseq2)[["centerValue"]]
+
+
+
+  pathways <- list(
+    
+    # from webgestaltR
+    c('KEGG', 'enrichment_KEGG.tsv', 'mmusculus_kegg_scrapy.symbols.gmt'),
+
+    # custom
+    c('Actin_Cell_Mobility', 'enrichment_Actin_Cell_Mobility.tsv', 'actin.symbols.gmt'),
+    c('EMT', 'enrichment_EMT.tsv', 'EMT.symbols.gmt'),
+    c('PI3K', 'NA', 'PI3K.symbols.gmt'),
+    c('Integrin', 'NA', 'integrin.symbols.gmt'),
+    c('Wnt_signaling', 'NA', 'Wnt_signaling.gmt'),
+    c('P53_signaling', 'NA', 'P53.gmt'),
+    c('Innate_immune_response', 'NA', 'Innate_immune.gmt'),
+
+
+    c('Wikipathway', 'enrichment_Wikipathway.tsv', 'mmusculus_pathway_Wikipathway.symbols.gmt'),
+    c('GO_BP', 'enrichment_GO_BP.tsv', 'mmusculus_geneontology_Biological_Process.symbols.gmt'),
+    c('GO_CC', 'enrichment_GO_CC.tsv', 'mmusculus_geneontology_Cellular_Component.symbols.gmt'),
+    c('GO_MF', 'enrichment_GO_MF.tsv', 'mmusculus_geneontology_Molecular_Function.symbols.gmt'),
+    c('Reactome', 'enrichment_Reactome.tsv', 'mmusculus_pathway_Reactome.symbols.gmt'),
+
+
+    # from msigdb
+    c('HallmarkGenes', 'enrichment_HallmarkGenes.tsv', 'mh.all.v2024.1.Mm.symbols.gmt'),
+    c('CuratedGeneSets', 'enrichment_CuratedGeneSets.tsv', 'm2.all.v2024.1.Mm.symbols.gmt'),
+    c('OntologyGeneSets', 'enrichment_OntologyGeneSets.tsv', 'm5.all.v2024.1.Mm.symbols.gmt')
+  )
+
+
+      # plotData <- list(enriched = enriched,
+      #                  deseq2 = deseq2,
+      #                  category = category,
+      #                  prefix = fname)
+
+  # enrichment_GO_CC.tsv
+
+```
+
+
+```{r prepare_data}
+  fn_heather_report_sub <- 'heather_report_sub.rmd'
+  fn_section <- 'section.rmd'
+  content = ""
+  pathway <- pathways[[1]]
+  
+  for (pathway in pathways){
+
+    lb <- pathway[1]
+    fn_ora <- pathway[2]
+    fn_gmt <- pathway[3]
+    
+    gsea_dir <- list.files(path = 'gsea', pattern = paste0(lb, '.GseaPreranked'), full.names = TRUE)
+    if (length(gsea_dir) == 0){
+      content <- paste0(content, '# ', lb, '\n\n', '<span style="color:red">WARNING: no GSEA result is found.</span>\n\n')
+    }else{
+      gsea_dir <- gsea_dir[1]
+      content <- print0(content, '# ', lb, '\n\n```{r}\n\n  lb <- "', lb, '"\n  fn_ora <- "', fn_ora, '"\n  gsea_dir <- "', gsea_dir, '"\n  fn_gmt <- "', fn_gmt,  '"\n\n```\n')
+      content <- print0(content, '```{r child="', fn_section, '"}\n\n```\n\n')
+    }
+    
+
+    writeLines(content, fn_heather_report_sub)
+  }
+```
+
+```{r, child='heather_report_sub.rmd'}
+```
+

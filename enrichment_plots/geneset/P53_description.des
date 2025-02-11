@@ -1,0 +1,65 @@
+GO:0006977	DNA damage response, signal transduction by p53 class mediator resulting in cell cycle arrest
+GO:0006978	DNA damage response, signal transduction by p53 class mediator resulting in transcription of p21 class mediator
+GO:0030330	DNA damage response, signal transduction by p53 class mediator
+GO:0042771	intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator
+GO:0043516	regulation of DNA damage response, signal transduction by p53 class mediator
+GO:0043517	positive regulation of DNA damage response, signal transduction by p53 class mediator
+GO:0043518	negative regulation of DNA damage response, signal transduction by p53 class mediator
+GO:0072331	signal transduction by p53 class mediator
+GO:0072332	intrinsic apoptotic signaling pathway by p53 class mediator
+GO:1901796	regulation of signal transduction by p53 class mediator
+GO:1901797	negative regulation of signal transduction by p53 class mediator
+GO:1901798	positive regulation of signal transduction by p53 class mediator
+GO:1902162	regulation of DNA damage response, signal transduction by p53 class mediator resulting in transcription of p21 class mediator
+GO:1902163	negative regulation of DNA damage response, signal transduction by p53 class mediator resulting in transcription of p21 class mediator
+GO:1902164	positive regulation of DNA damage response, signal transduction by p53 class mediator resulting in transcription of p21 class mediator
+GO:1902165	regulation of intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator
+GO:1902166	negative regulation of intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator
+GO:1902167	positive regulation of intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator
+GO:1902238	regulation of intrinsic apoptotic signaling pathway in response to osmotic stress by p53 class mediator
+GO:1902239	negative regulation of intrinsic apoptotic signaling pathway in response to osmotic stress by p53 class mediator
+GO:1902253	regulation of intrinsic apoptotic signaling pathway by p53 class mediator
+GO:1902254	negative regulation of intrinsic apoptotic signaling pathway by p53 class mediator
+GO:1902255	positive regulation of intrinsic apoptotic signaling pathway by p53 class mediator
+GO:1990127	intrinsic apoptotic signaling pathway in response to osmotic stress by p53 class mediator
+WP2902	p53 signaling
+GO:0002039	p53 binding
+R-MMU-6803205	TP53 regulates transcription of several additional cell death genes whose specific roles in p53-dependent apoptosis remain uncertain
+R-MMU-6804115	TP53 regulates transcription of additional cell cycle genes whose exact role in the p53 pathway remain uncertain
+R-MMU-69541	Stabilization of p53
+R-MMU-69560	Transcriptional activation of p53 responsive genes
+R-MMU-69563	p53-Dependent G1 DNA Damage Response
+R-MMU-69580	p53-Dependent G1/S DNA damage checkpoint
+R-MMU-69610	p53-Independent DNA Damage Response
+R-MMU-69613	p53-Independent G1/S DNA damage checkpoint
+mmu04115	p53 signaling pathway
+WP_P53_SIGNALING	p53 signaling
+GOBP_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"A cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage. [GOC:go_curators]"
+GOBP_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR_RESULTING_IN_CELL_CYCLE_ARREST	"A cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage and resulting in the stopping or reduction in rate of the cell cycle. [GOC:go_curators]"
+GOBP_FERROPTOSIS	"A programmed cell death characterized morphologically by the presence of smaller than normal mitochondria with condensed mitochondrial membrane densities, reduction or vanishing of mitochondria crista, and outer mitochondrial membrane rupture. Activation of mitochondrial voltage-dependent anion channels and mitogen-activated protein kinases, upregulation of endoplasmic reticulum stress, and inhibition of cystine/glutamate antiporter are involved in the induction of ferroptosis. This process is characterized by the accumulation of lipid peroxidation products and lethal reactive oxygen species (ROS) derived from iron metabolism. Glutathione peroxidase 4 (GPX4), heat shock protein beta-1, and nuclear factor erythroid 2-related factor 2 function as negative regulators of ferroptosis by limiting ROS production and reducing cellular iron uptake, respectively. In contrast, NADPH oxidase and p53 act as positive regulators of ferroptosis by promotion of ROS production and inhibition of expression of SLC7A11 (a specific light-chain subunit of the cystine/glutamate antiporter), respectively. Misregulated ferroptosis has been implicated in multiple physiological and pathological processes. [GOC:mtg_apoptosis, PMID:25236395, PMID:26794443]"
+GOBP_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_BY_P53_CLASS_MEDIATOR	"The series of molecular signals in which an intracellular signal is conveyed to trigger the apoptotic death of a cell. The pathway is induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, and ends when the execution phase of apoptosis is triggered. [GOC:mah, GOC:mtg_apoptosis]"
+GOBP_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_IN_RESPONSE_TO_DNA_DAMAGE_BY_P53_CLASS_MEDIATOR	"The series of molecular signals in which an intracellular signal is conveyed to trigger the apoptotic death of a cell. The pathway is induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage, and ends when the execution phase of apoptosis is triggered. [GOC:go_curators, GOC:mtg_apoptosis]"
+GOBP_NEGATIVE_REGULATION_OF_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that stops, prevents, or reduces the frequency, rate or extent of the cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage. [GOC:jl]"
+GOBP_NEGATIVE_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_BY_P53_CLASS_MEDIATOR	"Any process that stops, prevents or reduces the frequency, rate or extent of intrinsic apoptotic signaling pathway by p53 class mediator. [GOC:BHF, GOC:mtg_apoptosis, GOC:rl, GOC:TermGenie, PMID:15705871]"
+GOBP_NEGATIVE_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_IN_RESPONSE_TO_DNA_DAMAGE_BY_P53_CLASS_MEDIATOR	"Any process that stops, prevents or reduces the frequency, rate or extent of intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator. [GOC:TermGenie, PMID:17719541]"
+GOBP_NEGATIVE_REGULATION_OF_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that stops, prevents or reduces the frequency, rate or extent of signal transduction by p53 class mediator. [GOC:TermGenie]"
+GOBP_POSITIVE_REGULATION_OF_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that activates, maintains or increases the rate of the cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage. [GOC:jl]"
+GOBP_POSITIVE_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_BY_P53_CLASS_MEDIATOR	"Any process that activates or increases the frequency, rate or extent of intrinsic apoptotic signaling pathway by p53 class mediator. [GOC:BHF, GOC:mtg_apoptosis, GOC:rl, GOC:TermGenie, PMID:15705871]"
+GOBP_POSITIVE_REGULATION_OF_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that activates or increases the frequency, rate or extent of signal transduction by p53 class mediator. [GOC:TermGenie]"
+GOBP_REGULATION_OF_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that modulates the frequency, rate or extent of the cascade of processes induced by the cell cycle regulator phosphoprotein p53, or an equivalent protein, in response to the detection of DNA damage. [GOC:jl]"
+GOBP_REGULATION_OF_DNA_DAMAGE_RESPONSE_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR_RESULTING_IN_TRANSCRIPTION_OF_P21_CLASS_MEDIATOR	"Any process that modulates the frequency, rate or extent of DNA damage response, signal transduction by p53 class mediator resulting in transcription of p21 class mediator. [GOC:TermGenie, PMID:17719541]"
+GOBP_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_BY_P53_CLASS_MEDIATOR	"Any process that modulates the frequency, rate or extent of intrinsic apoptotic signaling pathway by p53 class mediator. [GOC:BHF, GOC:mtg_apoptosis, GOC:rl, GOC:TermGenie, PMID:15705871]"
+GOBP_REGULATION_OF_INTRINSIC_APOPTOTIC_SIGNALING_PATHWAY_IN_RESPONSE_TO_DNA_DAMAGE_BY_P53_CLASS_MEDIATOR	"Any process that modulates the frequency, rate or extent of intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator. [GOC:TermGenie, PMID:17719541]"
+GOBP_REGULATION_OF_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	"Any process that modulates the frequency, rate or extent of signal transduction by p53 class mediator. [GOC:TermGenie]"
+GOBP_SIGNAL_TRANSDUCTION_BY_P53_CLASS_MEDIATOR	An intracellular signaling process that is induced by the cell cycle regulator phosphoprotein p53 or an equivalent protein. [GOC:mah]
+GOMF_MDM2_MDM4_FAMILY_PROTEIN_BINDING	"Binding to a member of the MDM2/MDM4 protein family, comprising negative regulators of p53. [InterPro:IPR016495]"
+GOMF_P53_BINDING	Binding to one of the p53 family of proteins. [GOC:hjd]
+REACTOME_STABILIZATION_OF_P53	Stabilization of p53
+REACTOME_TP53_REGULATES_TRANSCRIPTION_OF_ADDITIONAL_CELL_CYCLE_GENES_WHOSE_EXACT_ROLE_IN_THE_P53_PATHWAY_REMAIN_UNCERTAIN	TP53 regulates transcription of additional cell cycle genes whose exact role in the p53 pathway remain uncertain
+BIOCARTA_P53_PATHWAY	p53 Signaling Pathway
+BRUINS_UVC_RESPONSE_VIA_TP53_GROUP_A	Category A genes: p53-dependent genes whose expression in the absence of S389 phosphorylation is similar to loss of TP53 [GeneID=7157] in MEF (embryonic fibroblast) cells in response to UV-C irradiation.
+BRUINS_UVC_RESPONSE_VIA_TP53_GROUP_C	Category C genes: p53-independent genes whose expression in the absence of S389 phosphorylation is dissimilar to loss of TP53 [GeneID=7157] in MEF (embryonic fibroblast) cells in response to UV-C irradiation.
+BRUINS_UVC_RESPONSE_VIA_TP53_GROUP_D	Category D genes: p53-independent genes whose expression in the absence of S389 phosphorylation is similar to loss of TP53 [GeneID=7157] in MEF (embryonic fibroblast) cells in response to UV-C irradiation.
+GIBBONS_GENETIC_MOUSE_MODEL_LUNG_ADENOCARCINOMA_DOWN_IN_METASTASIS	Gene sets differentially expressed in the metastases of non-small cell lung adenocarcinoma tumors from Kras<LA1/+>; p53<R172HdeltaG/+> mice relative to paired primary lung tumors.
+GIBBONS_GENETIC_MOUSE_MODEL_LUNG_ADENOCARCINOMA_UP_IN_METASTASIS	Gene sets differentially expressed in the metastases of non-small cell lung adenocarcinoma tumors from Kras<LA1/+>; p53<R172HdeltaG/+> mice relative to paired primary lung tumors.
+

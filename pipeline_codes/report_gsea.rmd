@@ -1,0 +1,129 @@
+
+
+### FPAS_VS_PBS
+
+
+
+#### CuratedGeneSets
+
+
+
+##### Positive-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.CuratedGeneSets.pos.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Negative-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.CuratedGeneSets.neg.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Top enriched gene sets
+
+
+```{r,echo=FALSE,results='asis',out.width='100%'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.CuratedGeneSets.enriched.csv.png')
+```
+
+
+
+#### HallmarkGeneSets
+
+
+
+##### Positive-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.HallmarkGeneSets.pos.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Negative-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.HallmarkGeneSets.neg.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Top enriched gene sets
+
+
+```{r,echo=FALSE,results='asis',out.width='100%'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.HallmarkGeneSets.enriched.csv.png')
+```
+
+
+
+#### ImmunologicSignatureGeneSets
+
+
+
+##### Positive-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.ImmunologicSignatureGeneSets.pos.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Negative-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.ImmunologicSignatureGeneSets.neg.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Top enriched gene sets
+
+
+```{r,echo=FALSE,results='asis',out.width='100%'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.ImmunologicSignatureGeneSets.enriched.csv.png')
+```
+
+
+
+#### OntologyGeneSets
+
+
+
+##### Positive-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.OntologyGeneSets.pos.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Negative-regulated
+
+
+```{r,echo=FALSE,results='asis'}
+printPagedTable(filepath='/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.OntologyGeneSets.neg.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+```
+
+
+
+##### Top enriched gene sets
+
+
+```{r,echo=FALSE,results='asis',out.width='100%'}
+check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/result/P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.OntologyGeneSets.enriched.csv.png')
+```
+
+

@@ -1,0 +1,13 @@
+
+
+### all samples
+
+```{r,echo=FALSE,results='asis', fig.align='center', fig.cap=figRef('all_correlation_heatmap', 'all correlation heatmap using all genes', trunk.eval=file.exists('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.heatmap.png'))}
+  check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.heatmap.png')
+```
+```{r,echo=FALSE,results='asis', fig.align='center', fig.cap=figRef('all_correlation_PCA', 'all correlation PCA', trunk.eval=file.exists('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.PCA.png'))}
+  check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.PCA.png')
+```
+```{r,echo=FALSE,results='asis', fig.align='center', fig.cap=figRef('P11636_RNAseq_mm10.proteincoding.count.Correlation.png', 'all sample correlation', trunk.eval=file.exists('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.Correlation.png'))}
+  check_and_include_graphics('/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/result/P11636_RNAseq_mm10.proteincoding.count.Correlation.png')
+```

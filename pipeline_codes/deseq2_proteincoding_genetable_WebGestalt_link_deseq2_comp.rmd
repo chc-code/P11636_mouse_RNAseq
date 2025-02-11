@@ -1,0 +1,44 @@
+
+# FPAS_VS_PBS
+
+
+## geneontology Biological Process
+
+```{r}
+comparison='FPAS_VS_PBS'
+category='geneontology Biological Process'
+```
+
+```{r child='WebGestaltDeseq2.v2.sub.rmd'}
+```
+
+## geneontology Cellular Component
+
+```{r}
+comparison='FPAS_VS_PBS'
+category='geneontology Cellular Component'
+```
+
+```{r child='WebGestaltDeseq2.v2.sub.rmd'}
+```
+
+## geneontology Molecular Function
+
+```{r}
+comparison='FPAS_VS_PBS'
+category='geneontology Molecular Function'
+```
+
+```{r child='WebGestaltDeseq2.v2.sub.rmd'}
+```
+
+## pathway KEGG
+
+```{r}
+comparison='FPAS_VS_PBS'
+category='pathway KEGG'
+```
+
+```{r child='WebGestaltDeseq2.v2.sub.rmd'}
+```
+

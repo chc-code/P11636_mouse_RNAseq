@@ -1,0 +1,136 @@
+
+## FPAS_2
+
+
+### 11636-CP-0007_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0007_S1_L005_R1_001', '11636-CP-0007_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0007_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0007_S1_L005_R2_001', '11636-CP-0007_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_2/11636-CP-0007_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## FPAS_3
+
+
+### 11636-CP-0008_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0008_S1_L005_R1_001', '11636-CP-0008_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0008_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0008_S1_L005_R2_001', '11636-CP-0008_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_3/11636-CP-0008_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## FPAS_4
+
+
+### 11636-CP-0009_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0009_S1_L005_R1_001', '11636-CP-0009_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0009_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0009_S1_L005_R2_001', '11636-CP-0009_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_4/11636-CP-0009_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## FPAS_5
+
+
+### 11636-CP-0010_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0010_S1_L005_R1_001', '11636-CP-0010_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0010_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0010_S1_L005_R2_001', '11636-CP-0010_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/FPAS_5/11636-CP-0010_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## PBS_2
+
+
+### 11636-CP-0002_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0002_S1_L005_R1_001', '11636-CP-0002_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0002_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0002_S1_L005_R2_001', '11636-CP-0002_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_2/11636-CP-0002_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## PBS_3
+
+
+### 11636-CP-0003_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0003_S1_L005_R1_001', '11636-CP-0003_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0003_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0003_S1_L005_R2_001', '11636-CP-0003_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_3/11636-CP-0003_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## PBS_4
+
+
+### 11636-CP-0004_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0004_S1_L005_R1_001', '11636-CP-0004_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0004_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0004_S1_L005_R2_001', '11636-CP-0004_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_4/11636-CP-0004_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+## PBS_5
+
+
+### 11636-CP-0005_S1_L005_R1_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0005_S1_L005_R1_001', '11636-CP-0005_S1_L005_R1_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R1_001_fastqc/Images/adapter_content.png")) 
+```
+
+
+### 11636-CP-0005_S1_L005_R2_001
+
+```{r,echo=FALSE,results='asis', fig.show='hold',out.width="33%", fig.align='center', fig.cap=figRef('11636-CP-0005_S1_L005_R2_001', '11636-CP-0005_S1_L005_R2_001')}
+  include_graphics(c("/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/per_base_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/per_base_sequence_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/per_sequence_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/per_sequence_gc_content.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/per_tile_quality.png", "/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/result/PBS_5/11636-CP-0005_S1_L005_R2_001_fastqc/Images/adapter_content.png")) 
+```
+

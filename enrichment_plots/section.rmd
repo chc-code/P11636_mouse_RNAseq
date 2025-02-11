@@ -1,0 +1,258 @@
+```{r, echo=FALSE}
+    # if fn_ora is not NA
+    
+    if (lb == 'KEGG'){
+        pwfigure <- '/Users/files/work/cooperate/vivian/heather_rnaseq_redo_figure/20240801_11636_RNAseq_mouse/report/figures'
+         # innate immune and integrin belongs to GO:BP, so they are not available for pathview
+        print1('## Highlighted pahtways\n\n  Innate immune response and integrin related are not included because they belong to `GO:BP` and are not available in KEGG\n\n')
+        allpw <- list(
+            c('mmu04310', 'Wnt signaling pathway'),
+            c('mmu04810', 'Regulation of actin cytoskeleton'),
+            c('mmu04151', 'PI3K-Akt signaling pathway'),
+            c('mmu04115', 'p53 signaling pathway')
+        )
+        tmp1 <- allpw[1]
+        for( tmp1 in allpw){
+            kegg_id <- tmp1[1]
+            pwname <- tmp1[2]
+            deg_list <- get_overlapping_genes(deseq2, kegg_id, paste0('geneset/', fn_gmt))
+            
+            
+            pathview(
+            gene.data = deg_list,  # Named vector of logFC values
+            pathway.id = kegg_id,  # KEGG pathway ID
+            species = "mmu",  # Mouse
+            gene.idtype = "SYMBOL",  # Ensure the IDs are Entrez
+            kegg.native = TRUE,  # Use KEGG native visualization
+            limit = list(gene = c(-3, 3)),  # LogFC color scale limit
+            # low = "#FB0280", mid = "white", high = "#800080",  # Color mapping
+            low = "green", mid = "grey", high = "red",  # Color mapping
+            out.suffix = 'pathview',
+            )
+            
+            fn_figure <- paste0(kegg_id, '.pathview.png')
+            
+            if (file.exists(fn_figure)) {
+                print1(paste0('### ', kegg_id, ':  ', pwname))
+                print1('Overlapping genes number:  ', length(deg_list), "<br>\n")
+                add_img(fn_figure)
+            }
+        }
+        
+        
+        
+        
+       
+        
+            # deg_list <- c(
+            # "Gnai1" = 2.5,   # Upregulated (red)
+            # "Gnai2" = -1.8,  # Downregulated (green)
+            # "Gpr37" = 1.2,   # Upregulated (red)
+            # "Psmd4" = -2.0,   # Downregulated (green)
+            # 'Psmd4' = -10,
+            # 'Cox7b' = 10
+            # )
+            
+            
+            # kegg_id <- 'mmu05012'
+            # pathview(
+            # gene.data = deg_list,  # Named vector of logFC values
+            # pathway.id = kegg_id,  # KEGG pathway ID
+            # species = "mmu",  # Mouse
+            # gene.idtype = "SYMBOL",  # Ensure the IDs are Entrez
+            # kegg.native = TRUE,  # Use KEGG native visualization
+            # limit = list(gene = c(-3, 3)),  # LogFC color scale limit
+            # low = "green", mid = "white", high = "red",  # Color mapping
+            # out.suffix = 'pathview',
+            # )
+    }
+
+    display_ora <- FALSE
+    if (fn_ora != "NA") {
+        enriched<-fread(fn_ora, sep="\t", header=T, stringsAsFactors = F)
+        if (!"description" %in% colnames(enriched)) {
+            enriched$description <- enriched$geneSet
+        }
+        # select rows with FDR < 0.1
+        enriched<-enriched[enriched$FDR < 0.1,]
+        
+        rowCount<-nrow(enriched)
+        idx<-1
+        for(idx in c(1:rowCount)){
+            entry<-enriched[idx,]
+            userIds<-unlist(strsplit( entry$userId[1], ';'))
+            entryTable<-deseq2[deseq2[,geneCol] %in% userIds,]
+            if (!is.null(diffCol)) {
+                geneUp<-sum(entryTable[,diffCol] > diffCenterValue)
+                geneDown<-sum(entryTable[,diffCol] < diffCenterValue)
+                enriched$geneUp[idx]<-geneUp
+                enriched$geneDown[idx]<-geneDown
+            }
+            enriched$geneSetLink[idx]<-paste0("[", entry$geneSet, "](", entry$link, "){target='_blank'}")
+            enriched$link[idx]<-""
+        }
+        display_ora <- TRUE
+        if(rowCount < 1 | all(enriched$FDR >= 0.1)){
+            display_ora <- FALSE
+            cat('\n\n<div><span style="color:red">WARNING: no geneset is significantly enriched</span></div>\n\n')
+        }else{
+            print1('## ORA enrichment\n\n### Overview table')
+            cat('\n\n<mark>Total', nrow(enriched), 'genesets are significantly enriched.</mark>\n\n')
+            curTable=enriched |>
+                dplyr::select(geneSetLink, everything()) |>
+                dplyr::select(-geneSet)
+            if (("geneUp" %in% colnames(curTable)) & ("geneDown" %in% colnames(curTable)) ) {
+                curTable<-enriched[,c(1:9, 12,13)]
+            } else {
+                curTable<-enriched[,c(1:9)]
+            }
+            
+            print(kable(curTable, row.names=F))
+        }
+        
+
+    }
+```
+
+<hr>
+
+```{r, echo=FALSE, fig.width=8, fig.height=4}
+    if (display_ora) {
+        print1('### Plot')
+        fn_figure <- paste0('figures/', lb, '_ora_enrichment.png')
+        plot_ora(fn_figure, enriched)
+        add_img(fn_figure)
+    }
+    if (!exists ('plot_gsea')){
+        plot_gsea <- TRUE
+    }
+
+    if (plot_gsea){
+        write('', file = 'progress.txt')
+        log <- function(msg){
+            # write to progress.txt file
+            write(msg, file = "progress.txt", append = TRUE)
+            
+        }
+
+        fn_gmt <- paste0('geneset/', fn_gmt)
+        fn_lb <- sub("\\.symbols\\.gmt$", "", fn_gmt)
+        fn_lb <- sub("_entrezgene\\.gmt$", "", fn_lb)
+        fn_lb <- sub("\\.gmt$", "", fn_lb)
+        fn_desc <- paste0(fn_lb, '_description.des')
+
+        print1('## GSEA')
+        has_enriched=FALSE
+        top_enriched = NULL
+        
+        # positive
+        is_positive <- T
+        flag <- 'Positive'
+
+        flag_short <- tolower(substr(flag, 1, 3))
+
+        tbl_refined <- parse_gsea_subfolder(gsea_dir, is_positive, fn_gmt, fn_desc)
+        if (!is.null(tbl_refined)){
+            print1('### ', flag, '-regulated')
+            has_enriched = TRUE
+            fn_tbl <- paste0('gsea/', lb, '.', flag_short, '.csv')
+            write.csv(tbl_refined[,c(2:ncol(tbl_refined))], fn_tbl, row.names=F)
+            top_enriched = head(tbl_refined, 10)
+            printPagedTable(filepath=fn_tbl, row.names=0, escape=FALSE, digits=0, nsmall=0)
+        }
+        # else{
+        #     print1('\n<span style="color:red">WARNING: no ', flag, ' geneset is significantly enriched.</span>\n\n')
+        # }
+
+        # negative
+        is_positive <- F
+        flag <- 'Negative'
+
+        flag_short <- tolower(substr(flag, 1, 3))
+
+        tbl_refined <- parse_gsea_subfolder(gsea_dir, is_positive, fn_gmt, fn_desc)
+        if (!is.null(tbl_refined)){
+            print1('### ', flag, '-regulated')
+            has_enriched = TRUE
+            fn_tbl <- paste0('gsea/', lb, '.', flag_short, '.csv')
+            write.csv(tbl_refined[,c(2:ncol(tbl_refined))], fn_tbl, row.names=F)
+            top_enriched_neg = head(tbl_refined, 10)
+            # merge with top_enriched
+            top_enriched = rbind(top_enriched, top_enriched_neg)
+            printPagedTable(filepath=fn_tbl, row.names=0, escape=FALSE, digits=0, nsmall=0)
+        }
+        # else{
+        #     print1('\n<span style="color:red">WARNING: no ', flag, ' geneset is significantly enriched.</span>\n\n')
+        # }
+        
+        if(!has_enriched){
+            print1(paste0('\n#### <span style="color:red">WARNING: no geneset is significantly enriched.</span>\n\n'))
+        }else{
+            
+            print1('### Top enriched gene sets')
+            enriched_file=paste0('gsea/', lb, ".top_enriched.csv")
+            top_enriched$NES = as.numeric(top_enriched$NES)
+            top_enriched$Core = as.numeric(top_enriched$Core)
+            top_enriched$FDR.q.val = as.numeric(top_enriched$FDR.q.val)
+            
+            enriched_png=paste0('gsea/', lb, ".top_enriched.png")
+            top_enriched<-top_enriched[order(top_enriched$NES, decreasing=T),]
+            # top_enriched$NAME<-factor(top_enriched$NAME, levels=top_enriched$NAME)
+            # change NAME column to str
+            top_enriched$NAME <- as.character(top_enriched$NAME)
+
+            top_enriched$description_new <- ifelse(
+                is.na(top_enriched$Description) | nchar(as.character(top_enriched$Description)) > 150 | nchar(as.character(top_enriched$Description)) < 5, 
+                top_enriched$NAME, 
+                top_enriched$Description
+            )
+            
+            # remove the string after [ (bracket symbol)
+            top_enriched$description_new <- gsub("\\[.*", "", top_enriched$description_new)
+            # trim the trailing non-work chars, including white space and dot and other symbols
+            top_enriched$description_new <- gsub("[^[:alnum:]]+$", "", top_enriched$description_new)
+            
+            
+            seen <- list()
+            top_enriched <- top_enriched %>%
+            mutate(description_new = sapply(description_new, function(x) {
+                if (x %in% names(seen)) {
+                seen[[x]] <<- seen[[x]] + 1
+                new_x <- paste0(x, strrep(" ", seen[[x]]))  # Append zero-width spaces dynamically
+                return(as.character(new_x))
+                } else {
+                seen[[x]] <<-  0
+                return(as.character(x))
+                }
+            }))
+
+            top_enriched$description_new <- sprintf("%60s", substr(as.character(top_enriched$description_new), 1, 60))
+
+            top_enriched$description_new<-factor(top_enriched$description_new, levels=top_enriched$description_new)
+
+            write.csv(top_enriched, enriched_file, row.names=F)
+
+            g<-ggplot(top_enriched, aes(NES, description_new)) + geom_point(aes(size=Core, color=FDR.q.val)) + geom_vline(xintercept=0) + theme_bw() + ylab("") + xlab("Normalized enrichment score")
+
+            height=max(1200, 3000/40*nrow(top_enriched))
+            ncharmax=max(nchar(as.character(top_enriched$NAME)))
+            width=max(3000, ncharmax * 40 + 1000)
+            ggsave(enriched_png, g, width=width, height=height, dpi=300, units="px", bg="white")
+            add_img(enriched_png)
+
+        }
+    }
+    
+
+
+    # print1('### Negative-regulated')
+    # printPagedTable(filepath='P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.CuratedGeneSets.neg.csv', row.names=0, escape=FALSE, digits=0, nsmall=0)
+
+
+    # print1('Top enriched gene sets')
+    # check_and_include_graphics('P11636_RNAseq_mm10.gsea/FPAS_VS_PBS.CuratedGeneSets.enriched.csv.png')
+
+
+
+
+```

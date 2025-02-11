@@ -1,0 +1,120 @@
+#!/bin/bash
+#SBATCH --mail-user=hua-chang.chen@vumc.org
+#SBATCH --mail-type=FAIL
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --time=24:00:00
+#SBATCH --mem=44G
+#SBATCH -o /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/sequencetask/log/P11636_RNAseq_mm10_pipeline_st.log
+
+if [ -n "${SLURM_JOB_ID}" ] ; then
+  smemwatch -k 99 -d 50 $$ &
+fi
+
+
+
+
+
+cd '/nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/sequencetask/pbs'
+
+set -o pipefail
+
+
+
+
+echo CQS::SequenceTask_start=`date`
+echo working in /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/sequencetask/pbs ...
+ 
+# paired_end_validation
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/FPAS_2_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/FPAS_3_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/FPAS_4_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/FPAS_5_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/PBS_2_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/PBS_3_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/PBS_4_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/paired_end_validation/pbs/PBS_5_qc.pbs 
+# fastqc_raw
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/FPAS_2_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/FPAS_3_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/FPAS_4_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/FPAS_5_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/PBS_2_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/PBS_3_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/PBS_4_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw/pbs/PBS_5_fq.pbs 
+# cutadapt
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/FPAS_2_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/FPAS_3_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/FPAS_4_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/FPAS_5_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/PBS_2_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/PBS_3_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/PBS_4_cut.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt/pbs/PBS_5_cut.pbs 
+# cutadapt_validation
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/FPAS_2_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/FPAS_3_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/FPAS_4_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/FPAS_5_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/PBS_2_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/PBS_3_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/PBS_4_qc.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/cutadapt_validation/pbs/PBS_5_qc.pbs 
+# fastqc_post_trim
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/FPAS_2_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/FPAS_3_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/FPAS_4_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/FPAS_5_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/PBS_2_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/PBS_3_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/PBS_4_fq.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim/pbs/PBS_5_fq.pbs 
+# fastq_len
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/FPAS_2_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/FPAS_3_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/FPAS_4_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/FPAS_5_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/PBS_2_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/PBS_3_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/PBS_4_flen.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len/pbs/PBS_5_flen.pbs 
+# fastqc_raw_summary
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_raw_summary/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# fastqc_post_trim_summary
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim_summary/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# fastq_len_vis
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastq_len_summary/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# fastqc_count_vis
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/fastqc_post_trim_summary/pbs/P11636_RNAseq_mm10_fqcv.pbs 
+# star_featurecount
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/FPAS_2_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/FPAS_3_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/FPAS_4_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/FPAS_5_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/PBS_2_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/PBS_3_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/PBS_4_sf.pbs 
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount/pbs/PBS_5_sf.pbs 
+# star_featurecount_summary
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/star_featurecount_summary/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# genetable
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/pbs/P11636_RNAseq_mm10_tb.pbs 
+# genetable_correlation
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/genetable/pbs/P11636_RNAseq_mm10_cr.pbs 
+# deseq2_proteincoding_genetable
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable/pbs/P11636_RNAseq_mm10_de2.pbs 
+# deseq2_proteincoding_genetable_WebGestalt
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_WebGestalt/pbs/P11636_RNAseq_mm10_wr.pbs 
+# deseq2_proteincoding_genetable_WebGestalt_link_deseq2
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_WebGestalt_link_deseq2/pbs/P11636_RNAseq_mm10_ur.pbs 
+# deseq2_proteincoding_genetable_GSEA_Hs
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# deseq2_proteincoding_genetable_GSEA_Hs_report
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable_GSEA_Hs_report/pbs/P11636_RNAseq_mm10_uniqueR.pbs 
+# multiqc
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/multiqc/pbs/P11636_RNAseq_mm10_mqc.pbs 
+# report
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/report/pbs/P11636_RNAseq_mm10_br.pbs 
+
+bash /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/sequencetask/pbs/P11636_RNAseq_mm10_report_st.pbs 

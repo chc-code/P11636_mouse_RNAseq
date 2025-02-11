@@ -1,0 +1,473 @@
+---
+title: "RNA Sequencing Data Analysis Report"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 3
+    number_sections: true
+---
+
+```{css, echo=FALSE}
+#content{
+    max-width:1920px;
+}
+```
+
+<style type="text/css">
+    div.datatables { height: auto !important;}
+</style>
+
+```{r setup, include=FALSE}
+library(kableExtra)
+library(formatR)
+
+source("reportFunctions.R")
+source("Pipeline.R")
+
+rnaseqOptions<-read.table("fileList2.txt", header=FALSE, as.is=TRUE)
+rownames(rnaseqOptions)<-rnaseqOptions$V2
+out.width<-rnaseqOptions["out.width", 1]
+taskName<-rnaseqOptions["task_name", 1]
+
+knitr::opts_chunk$set(
+  echo=FALSE,  
+  message=FALSE, 
+  warning=FALSE, 
+  results = 'asis', 
+  fig.width=7, 
+  fig.height = 7,
+  tidy = TRUE, 
+  tidy.opts = list(comment = FALSE, width.cutoff = 120),
+  out.width=out.width)
+options(knitr.graphics.rel_path = FALSE)
+```
+
+```{r data, include=FALSE}
+files<-read.table("fileList1.txt", header=FALSE, as.is=TRUE)
+rownames(files)<-files$V2
+
+file_map=split(files$V1, files$V2)
+
+hasFastqc<-any(grepl("fastqc_", rownames(files)))
+hasFastqcPosttrim<-any(grepl("fastqc_post_trim_", rownames(files)))
+
+hasSTAR<-any(grepl("STAR_", rownames(files)))
+hasFeatureCount<-any(grepl("featureCounts_", rownames(files)))
+
+has_star_chromosome_png="STAR_chromosome_png" %in% names(file_map)
+if(has_star_chromosome_png){
+  file_map$feature_chromosome_png=gsub(".chromosome.png", ".gene.chromosome.png", file_map$STAR_chromosome_png)
+  has_feature_chromosome_png=file.exists(file_map$feature_chromosome_png)
+}else{
+  has_feature_chromosome_png=FALSE
+}
+
+hasDEseq2<-any(grepl("deseq2_", rownames(files)))
+
+hasWebGestaltAnalysis<-any(grepl("WebGestalt_", rownames(files)))
+webgestalt_rmd="webgestalt.rmd"
+
+hasGseaAnalysis<-any(grepl("gsea_", rownames(files)))
+hasEnrichmentAnalysis<-hasWebGestaltAnalysis | hasGseaAnalysis
+
+corNames<-gsub("_correlation_density", "", rownames(files)[grepl("_correlation_density", rownames(files))])
+corNames<-sort(corNames)
+corNames=c("all", corNames[corNames != "all"])
+
+if(rnaseqOptions["top25cv_in_hca", 1] == "FALSE"){
+  hca_gene_used<-" using all genes"
+}else{
+  hca_gene_used<-" using top 25% variant genes"
+}
+
+has_introduction="introduction_rmd" %in% rnaseqOptions$V2
+introduction_rmd=rnaseqOptions["introduction_rmd", 1]
+
+deseq2_rmd="deseq2.rmd"
+gsea_rmd_file="gsea.rmd"
+```
+
+```{r, child=introduction_rmd, eval=has_introduction}
+```
+ 
+```{r fastqc_raw_per_base_sequence_quality,echo=FALSE,results='asis', eval = hasFastqc, fig.align="center", fig.cap=figRef("fastqc_raw_per_base_sequence_quality", "The mean quality scores of sequencing reads in each position", trunk.eval=file.exists(file_map$fastqc_raw_per_base_sequence_quality))}
+cat("\n# Sequencing Quality\n\n## Summary of sequencing quality\n\n")
+check_and_include_graphics(file_map$fastqc_raw_per_base_sequence_quality)
+```
+
+```{r fastqc_raw_per_base_sequence_quality_table,echo=FALSE,results='asis', eval = hasFastqc,warning=FALSE}
+tableFile=gsub(".png$","",file_map$fastqc_raw_per_base_sequence_quality)
+table<-read.delim(tableFile)
+
+QualityMin=30
+if (any(table$Mean<=QualityMin)) { #use this as cutoff to show the quality table
+  output_table1=data.frame(table[,c("File","Mean","Base")])
+  output_table1$Base=factor(as.character(output_table1$Base),levels = unique(output_table1$Base))
+  output_table1=tidyr::pivot_wider(output_table1,names_from=Base,values_from=Mean)
+  output_table1=output_table1[which(apply(output_table1[,-1],1,min)< QualityMin),]
+
+  if(nrow(output_table1) > 0){
+    print(kable(output_table1, caption=tabRef("Quality Summary", "Samples with Low RNA-seq Quality"), row.names=F) %>% 
+            kable_styling() %>%
+            row_spec(which(apply(output_table1[,-1],1,min)< QualityMin), color = "black", background = "honeydew") %>%
+            htmltools::HTML())
+  }
+}
+```
+
+```{r fastqc_raw_per_sequence_gc_content,echo=FALSE,results='asis', eval = hasFastqc, fig.align="center", fig.cap=figRef("fastqc_raw_per_sequence_gc_content", "The average GC content of sequencing reads", trunk.eval=file.exists(file_map$fastqc_raw_per_sequence_gc_content))}
+check_and_include_graphics(file_map$fastqc_raw_per_sequence_gc_content)
+```
+
+```{r fastqc_raw_per_sequence_gc_content_table,echo=FALSE,results='hide', eval = FALSE,warning=FALSE}
+
+tableFile=gsub(".png$","",file_map$fastqc_raw_per_sequence_gc_content)
+tableContent<-read.delim(tableFile)
+
+tableContentSummary=tableContent %>% group_by(File) %>% summarise(GC25=sum(Count[which(GC.Content<=25)])/sum(Count),
+                                              GC50=sum(Count[which(GC.Content<=50)])/sum(Count),
+                                              GC75=sum(Count[which(GC.Content>=75)])/sum(Count))
+
+GcDistributionCutoff=0.4 #GC content cutoff
+gcSampleInd=which(tableContentSummary$GC25>=GcDistributionCutoff | tableContentSummary$GC75>=GcDistributionCutoff )
+if (any(gcSampleInd)) { #use this as cutoff to show GC distribution
+  output_table1=tableContentSummary[gcSampleInd,]
+  colnames(output_table1)[-1]=c("Percent of Reads <=25% GC","Percent of Reads <=50% GC","Percent of Reads >=75% GC")
+  for (i in 2:4) {
+    output_table1[[i]]=paste0(round(output_table1[[i]]*100,1),"%")
+  }
+  
+  print(kable(output_table1, caption=tabRef("GC content Distribution Summary", "Samples with abnormal GC content Distribution"), row.names=F) %>% 
+          kable_styling() %>%
+          htmltools::HTML() %>%
+          row_spec(which(apply(output_table1[,-1],1,min)< QualityMin), color = "black", background = "honeydew"))
+}
+```
+  
+```{r fastqc_raw_adapter_content,echo=FALSE,results='asis', eval = hasFastqc, fig.align="center", fig.cap=figRef("fastqc_raw_adapter_content", "Adapter content of sequencing reads", trunk.eval=file.exists(file_map$fastqc_raw_adapter_content))}
+check_and_include_graphics(file_map$fastqc_raw_adapter_content)
+```
+  
+```{r fastqc_post_trim_adapter_content,echo=FALSE,results='asis', eval = hasFastqcPosttrim, fig.align="center", fig.cap=figRef("fastqc_post_trim_adapter_content", "Adapter content of sequencing reads after cutadapt", trunk.eval=file.exists(file_map$fastqc_post_trim_adapter_content))}
+check_and_include_graphics(file_map$fastqc_post_trim_adapter_content)
+```
+  
+```{r STAR_summary,echo=FALSE,results='asis', eval = hasSTAR, fig.align="center", fig.cap=figRef("STAR_summary", "The statistics of RNAseq mapping results")}
+cat("\n# Mapping quality\n\n")
+cat("\n## Summary of mapping quality\n\n")
+include_graphics(file_map$STAR_summary)
+```
+
+```{r STAR_summary_table, echo=FALSE, results='asis', eval = hasSTAR}
+table<-read.csv(file_map$STAR_summary_table, check.names=F)
+output_table1<-data.frame(table[,c(1,2,3,4,5)], table[,3]/table[,2], (table[,3]+table[,4])/table[,2])
+colnames(output_table1)<-c("Sample", "Input reads", "Uniquely mapped reads", "Mapped to multiple loci", "Mapped to too many loci", "Uniquely mapped ratio", "Mapped ratio")
+
+box_stats<-boxplot(output_table1$`Uniquely mapped ratio`, plot=FALSE)$stats
+print(kable(output_table1, caption=tabRef("mapSummary", "The summary of RNAseq mapping results"), row.names=F) %>% 
+          kable_styling() %>%
+          row_spec(which(output_table1$`Uniquely mapped ratio` > box_stats[5]), color = "black", background = "bisque") %>% 
+          row_spec(which(output_table1$`Uniquely mapped ratio` < box_stats[1]), color = "black", background = "honeydew") %>%
+          htmltools::HTML())
+cat("**Uniquely mapped ratio** = Uniquely mapped / Input reads\n\n**Mapped ratio** = (Uniquely mapped + Mapped to multiple loci)/ Input reads\n\n")
+```
+
+```{r, echo=FALSE,results='asis', eval=has_star_chromosome_png, fig.align="center", fig.align="center", fig.cap=figRef("STAR_chromosome_png", "The reads mapped to each chromosome in each sample")}
+include_graphics(file_map$STAR_chromosome_png)
+csv_file=gsub(".png$", ".csv", file_map$STAR_chromosome_png)
+chrom_counts=fread(csv_file)
+if("GL000220.1" %in% chrom_counts$Chrom) {
+  cat("\n\n<mark>If there are a significant number of reads mapped to GL000220.1/KI270733.1, it might indicate incomplete rRNA depletion since the most highly expressed rRNA locus is on GL000220.1/KI270733.1 scaffold. Reference contigs GL000220.1 and KI270733.1, which contain near-complete matches to U13369.1, the GenBank sequence that has served as an rDNA reference. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6061828/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6061828/)</mark>\n\n")
+}
+```
+
+```{r, echo=FALSE,results='asis', eval = "STAR_gene_body_coverage_png" %in% names(file_map), fig.align="center", fig.cap=figRef("STAR_gene_body_coverage_png", "The coverage of reads mapped to gene body in each sample")}
+```
+
+# Expression Quantification
+
+```{r, results="asis", echo=FALSE, eval = hasFeatureCount} 
+cat("\n## Summary of reads assignment\n\nfeatureCounts was used to count reads mapped genes, and **MULTI** mapped reads were ")
+if(rnaseqOptions["featureCounts_UseMultiMappingReads", 1] == "FALSE"){
+  cat(" **NOT USED**. \n\n")
+}else{
+  cat(" **USED**. \n\n")
+}
+```
+
+```{r,echo=FALSE,results='asis', eval = hasFeatureCount, fig.align="center", fig.cap=figRef("gene_reads", "The number of reads assigned to genes in uniquely mapped reads")}
+# For featureCounts, unassigned_unmapped -> 
+#                    unassigned_mappingquality -> 
+#                    unassigned_fragmentlength -> 
+#                    unassigned_chimericreads -> 
+#                    unassigned_duplicate -> 
+#                    unassigned_multimapping ->
+#                    unassigned_secondary ->
+#                    unassigned_junction_condition ->
+#                    assigned
+# So, we cannot get how many unique mapped reads from the featureCounts summary.
+include_graphics(file_map$featureCounts_table_png)
+```
+
+```{r echo=FALSE,results='asis', eval = hasFeatureCount}
+table<-read.csv(file_map$featureCounts_table, check.names=F)
+readsUsed = "reads"
+if(rnaseqOptions["featureCounts_UseMultiMappingReads", 1] == "FALSE"){
+  readsUsed = "**UNIQUE** reads"
+}
+colnames(table)[1]<-"Sample"
+box_stats<-boxplot(table$Percent_Assigned, plot=FALSE)$stats
+print(kable(table, caption=tabRef("geneSummary", paste0("The summary of ", readsUsed, " assignment to genes")), row.names=F)%>% 
+          kable_styling() %>%
+          row_spec(which(table$Percent_Assigned > box_stats[5]), color = "black", background = "bisque") %>% 
+          row_spec(which(table$Percent_Assigned < box_stats[1]), color = "black", background = "honeydew") %>%
+          htmltools::HTML())
+```
+
+
+```{r, echo=FALSE,results='asis', eval=has_feature_chromosome_png, fig.align="center", fig.align="center", fig.cap=figRef("feature_chromosome_png", "The reads mapped to genes in each chromosome in each sample")}
+include_graphics(file_map$feature_chromosome_png)
+```
+
+```{r, eval=has_feature_chromosome_png, , fig.align="center", fig.align="center", fig.cap=figRef("feature_no_chrM_chromosome_png", "The reads mapped to genes in each chromosome (no chrM) in each sample")}
+remove_chrM_genes<-as.numeric(rnaseqOptions["remove_chrM_genes", 1])
+if(remove_chrM_genes){
+  cat("\n\n<mark>Genes on mitochondrial chromosome (chrM) were removed from the down-stream analysis.</mark>\n\n")
+  no_chrM_png = gsub(".chromosome.png", ".no_chrM.chromosome.png", file_map$feature_chromosome_png)
+  include_graphics(no_chrM_png)
+}
+```
+
+## Expression density of samples
+
+```{r correlation_density,echo=FALSE,results='asis', fig.align="center", fig.cap=figRef("correlation_density", "Expression density distribution of each sample", trunk.eval=is_file_exists(file_map$all_correlation_density))}
+check_and_include_graphics(file_map$all_correlation_density)
+```
+
+## Similarity between samples
+
+```{r, include=FALSE}
+corrFile<-"corr.Rmd"
+figureRmd<-function(file_map, corNames, section, hca_gene_used){
+  result<-""
+  for(i in c(1:length(corNames))){
+    name=corNames[i]
+    heatmap<-paste0(name, "_correlation_heatmap")
+    pca<-paste0(name, "_correlation_PCA")
+
+    lines<-paste0("\n\n", section, " ", name, " samples\n\n", 
+                  get_figure_description(heatmap, file_map[heatmap], paste0(heatmap, hca_gene_used)), 
+                  get_figure_description(pca, file_map[pca], pca) )
+
+    heatmap_png = file_map[heatmap]
+
+    corr_heatmap<-gsub(".heatmap.png", ".Correlation.png", heatmap_png)
+    if(file.exists(corr_heatmap)){
+      lines<-paste0(lines, get_figure_description(basename(corr_heatmap), corr_heatmap, paste(name, "sample correlation")))
+    }
+
+    biotype_png = gsub(".heatmap.png", ".biotype_perc.png", heatmap_png)
+    if(file.exists(biotype_png)){
+      lines<-paste0(lines, get_figure_description(basename(biotype_png), biotype_png, paste(name, "sample biotype distribution")))
+    }
+
+    result<-paste0(result, lines)
+  }
+  return(result)
+}
+cat(figureRmd(file_map, corNames, "###", hca_gene_used), file=corrFile)
+```
+
+```{r, child="corr.Rmd"} 
+```
+
+```{r include=FALSE, eval=hasDEseq2}
+result = "# Differential expression\n<br>\n\n"
+if ("DE_use_raw_pvalue" %in% row.names(rnaseqOptions) & rnaseqOptions["DE_use_raw_pvalue", 1]==1) {
+  pValueText="p value"
+} else {
+  pValueText="FDR adjusted p value"
+}
+deseq2criteria<-paste0("absolute fold change >= ", rnaseqOptions["DE_fold_change", 1], " and ", pValueText, " <= ", rnaseqOptions["DE_pvalue", 1])  
+result = paste0(result, "\nDifferential expression analysis criteria:", deseq2criteria, "\n\n")
+result = paste0(result, "\n## Volcano plot\n\n")
+
+if(file.exists(file_map$deseq2_volcano_plot)){
+  result = paste0(result, get_figure_description("Volcano_plot", file_map$deseq2_volcano_plot, "Volcano plot for all comparisons" ))
+}
+
+result = paste0(result, "\n## Summary of differential analysis\n\n")
+
+DESeq2_files<-files[grep("DESeq2_sig", files[,1]),]
+DESeq2_files<-DESeq2_files[order(DESeq2_files$V2),]
+DESeq2_list<-list()
+for (i in 1:nrow(DESeq2_files)){
+  DESeq2_list[[i]]<-read.csv(DESeq2_files[i,1], header=TRUE, row.names=1, check.names=F)
+}
+diffGeneCount=sapply(DESeq2_list, function(x) 
+  if("log2FoldChange" %in% colnames(x)) {
+    return(c(nrow(x),length(which(x[,"log2FoldChange"]>=0)),length(which(x[,"log2FoldChange"]<0))))
+  } else if ("FoldChange" %in% colnames(x)) {
+    return(c(nrow(x),length(which(x[,"FoldChange"]>=1)),length(which(x[,"FoldChange"]<1))))
+  } else {
+    return(nrow(x))
+  }
+)
+#  output_table3<-data.frame(c(gsub("_DESeq2_sig.csv","",basename(DESeq2_files[,1]))), c(unlist(lapply(DESeq2_list, nrow))))
+#  colnames(output_table3)<-c("Comparison", "Number of DEGs")
+output_table3<-data.frame(c(gsub("_DESeq2_sig.csv","",basename(DESeq2_files[,1]))), t(diffGeneCount))
+if (ncol(output_table3)==2) {
+  colnames(output_table3)<-c("Comparison", "Number of DEGs")
+} else {
+  colnames(output_table3)<-c("Comparison", "Number of DEGs","Up-regulated DEGs","Down-regulated DEGs")
+}
+
+result = paste0(result, "\n### Overall table\n\n")
+html_tbl = output_table(output_table3, "deseq2_table", paste0("DEG numbers under FC > ", rnaseqOptions["DE_fold_change", 1], " & ",pValueText," < ", rnaseqOptions["DE_pvalue", 1]))
+result = paste0(result, print(html_tbl))
+
+for (i in 1:nrow(DESeq2_files)){
+  comparisonName<-DESeq2_files[i,2]
+  #cat(comparisonName, "\n")
+
+  deseq2<-DESeq2_list[[i]]
+  
+  if(nrow(deseq2) > 0){
+    cnames<-c("log2FoldChange","lfcSE", "stat", "pvalue", "padj", "FoldChange")
+    hasGroupBaseMean=grepl("baseMean_", colnames(deseq2))
+    if(any(hasGroupBaseMean)){
+      cnames<-c(colnames(deseq2)[hasGroupBaseMean], cnames)
+    }
+    
+    if("Feature_gene_name"%in%colnames(deseq2)){
+      cnames<-c("Feature_gene_name", cnames)
+    }
+
+    deseq2table<-deseq2[, cnames]
+    deseq2_file = paste0(comparisonName, ".deseq2.csv")
+    write.csv(deseq2table, deseq2_file)
+
+    result = paste0(result, "\n### ", comparisonName, "\n\n")
+    result = paste0(result, getPagedTable(deseq2_file, row.names=1, escape=TRUE, digits=3, nsmall=2))
+  }
+}
+
+cat(result, file=deseq2_rmd)
+```
+
+```{r, child=deseq2_rmd, eval=hasDEseq2} 
+```
+
+```{r enrich, results="asis", echo=FALSE, eval=hasEnrichmentAnalysis} 
+cat("# Functional enrichment analysis\n\n")
+```
+  
+```{r webgestalt, results="asis", echo=FALSE, warning=FALSE, eval=hasWebGestaltAnalysis} 
+if("WebGestalt_deseq2" %in% files$V2){
+  show_webgestalt_detail=FALSE
+  webgestalt_intent="####"
+
+  webgestalt_rds = files$V1[files$V2 == "WebGestalt_deseq2"]
+  comp_list = readRDS(webgestalt_rds)
+
+  comp_content="\n## WebGestlat\n\n"
+  for (comparison in names(comp_list)){
+    comp_content=paste0(comp_content, "\n### ", comparison, "\n\n")
+
+    category_list=comp_list[[comparison]]
+
+    for(category in names(category_list)){
+      comp_content=paste0(comp_content, "\n#### ", category, "\n\n")
+
+      comp_content=paste0(comp_content, "```{r}\ncomparison='", comparison,"'\ncategory='", category,"'\n```\n\n")
+      comp_content=paste0(comp_content, "```{r child='WebGestaltDeseq2.v2.sub.rmd'}\n```\n")
+    }
+  }
+  writeLines(comp_content, webgestalt_rmd)
+}else{
+  cat("List of the top five significantly enriched elements\n")
+  display_webgestalt(files)
+}
+```
+
+```{r child=webgestalt_rmd, eval=file.exists(webgestalt_rmd) }
+```
+
+```{r gsea, results="asis", echo=FALSE, warning=FALSE, eval=hasGseaAnalysis} 
+cat("## GSEA\n\n")
+gsea_file_list = files$V1[files$V2 == "report_gsea"]
+gsea_files = read.csv(gsea_file_list, row.names=1)
+if(nrow(gsea_files) > 0){
+  gsea_files$file_path=paste0(dirname(gsea_file_list), "/", gsea_files$file_path)
+}
+save_gsea_rmd(gsea_files, gsea_rmd_file, "##")
+#gsea_files=files[grepl("gsea_", files$V2),]
+#display_gsea(gsea_files, paste0(taskName, "/gsea/"))
+``` 
+
+```{r, child=gsea_rmd_file, eval=hasGseaAnalysis} 
+```
+  
+# Results folder structure
+
+```{r structure_link, echo=FALSE, results='asis'}
+
+df<-NULL
+countFile<-list.files('.',pattern=".count$",full.names=TRUE,recursive=TRUE)
+if(length(countFile) > 0){
+  df<-rbind(df, data.frame(File=addLinkTag(countFile, countFile), Description="Gene expression read count table"))
+}
+
+fpkmFile<-list.files('.',pattern="fpkm.tsv$",full.names=TRUE,recursive=TRUE)
+if(length(fpkmFile) > 0){
+  df<-rbind(df, data.frame(File=addLinkTag(fpkmFile, fpkmFile), Description="Gene expression abundance table"))
+}
+
+deseqAll<-list.files('.',pattern="_DESeq2.csv$",full.names=TRUE,recursive=TRUE)
+if(length(deseqAll) > 0){
+  df<-rbind(df, data.frame(File=addLinkTag(deseqAll, deseqAll), Description="Differential expression analysis table"))
+}
+
+deseqSig<-list.files('.',pattern="_DESeq2_sig.csv$",full.names=TRUE,recursive=TRUE)
+if(length(deseqSig) > 0){
+  df<-rbind(df, data.frame(File=addLinkTag(deseqSig, deseqSig), Description="Significantly differential expressed genes"))
+}
+
+webgestaltDeseq2<-list.files('.',pattern=".txt.html$",full.names=TRUE,recursive=TRUE)
+if(length(webgestaltDeseq2) > 0){
+  df<-rbind(df, data.frame(File=addLinkTag(webgestaltDeseq2, webgestaltDeseq2), Description="WebgestaltR enrichment table"))
+}
+
+print(kable(df, caption=tabRef("resultFiles", "Result files")) %>%
+    kable_styling() %>%
+    htmltools::HTML())
+
+```
+
+# Software versions
+```{r softwareVersion, echo=FALSE, results='asis'}
+versions<-display_versions()
+```
+
+# Description
+```{r echo=FALSE}
+vmap<-unlist(split(versions$Version, versions$Software))
+has_FastQC<-"FastQC" %in% names(vmap)
+has_cutadapt<-"Cutadapt" %in% names(vmap)
+has_mapping<-"STAR" %in% names(vmap)
+```
+
+`r if(has_cutadapt){paste0("Reads were trimmed to remove adapter sequences using Cutadapt (", vmap['Cutadapt'], ")[1].\n")}`
+`r if(has_FastQC){paste0("Quality control on ", ifelse(has_cutadapt, "both raw reads and adaptor-trimmed reads", "reads"), " was performed using FastQC (", vmap['FastQC'], ")(www.bioinformatics.babraham.ac.uk/projects/fastqc).\n")}`
+`r if(has_mapping){paste0("Reads were aligned to the ", vmap['genome'], " genome using STAR (", vmap['STAR'], ")[2]. ", vmap['gtf'], " gene annotations were provided to STAR to improve the accuracy of mapping. featureCounts (", vmap['featureCounts'], ")[3] was used to count the number of mapped reads to each gene. ")}`
+ComplexHeatmap [4] was used for cluster analysis and visualization.
+`r if(hasDEseq2){paste0("Significantly differential expressed genes with ", deseq2criteria, " were detected by DESeq2 (", vmap['DESeq2'], ")[5].")}`
+`r if(hasWebGestaltAnalysis){paste0("Genome Ontology and KEGG pathway over-representation analysis was performed on differentially expressed genes using the WebGestaltR package (", vmap['WebGestaltR'], ")[6].")}`
+`r if(hasGseaAnalysis){paste0("Gene set enrichment analysis was performed using GSEA package (", vmap['GSEA'], ")[7] on database (", vmap['GSEA_DB'], ").")}`
+
+`r if(has_cutadapt){"[1]	Martin M: Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnetjournal 2011, 17:10-12."}`
+`r if(has_mapping){"[2]	Dobin A, Davis CA, Schlesinger F, Drenkow J, Zaleski C, Jha S, Batut P, Chaisson M, Gingeras TR: STAR: ultrafast universal RNA-seq aligner. Bioinformatics 2013, 29(1):15-21. \\\n[3]	Liao Y, Smyth GK, Shi W: featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics 2014, 30(7):923-930. \\\n"}`
+[4]	Gu, Z. Complex Heatmap Visualization. iMeta 2022. 1, e43. \
+`r if(hasDEseq2){"[5] Love MI, Huber W, Anders S: Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 2014, 15(12):550."}` \
+`r if(hasWebGestaltAnalysis){"[6]	Wang J, Vasaikar S, Shi Z, Greer M, Zhang B: WebGestalt 2017: a more comprehensive, powerful, flexible and interactive gene set enrichment analysis toolkit. Nucleic Acids Res 2017, 45(W1):W130-W137.\\"}`
+`r if(hasGseaAnalysis){"[7]	Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, Paulovich A, Pomeroy SL, Golub TR, Lander ES et al: Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. Proc Natl Acad Sci U S A 2005, 102(43):15545-15550."}` \

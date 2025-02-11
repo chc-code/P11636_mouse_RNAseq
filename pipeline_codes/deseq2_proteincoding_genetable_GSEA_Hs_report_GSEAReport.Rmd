@@ -1,0 +1,57 @@
+---
+title: "GSEA Report"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+output: 
+  rmdformats::readthedown:
+    toc_depth: 3
+    number_sections: true
+---
+
+```{css, echo=FALSE}
+#content{
+    max-width:1920px;
+}
+```
+
+<style type="text/css">
+    div.datatables { height: auto !important;}
+</style>
+
+```{r setup, include=FALSE}
+library(knitr)
+library(dplyr)
+library(kableExtra)
+knitr::opts_chunk$set(echo=FALSE,  message=FALSE, warning=FALSE, results = 'asis', fig.width=7, fig.height = 7,tidy = TRUE, tidy.opts = list(comment = FALSE))
+```
+
+```{r}
+options_table<-read.table("fileList2.txt", sep="\t", header=F, stringsAsFactors = F)
+myoptions<-split(options_table$V1, options_table$V2)
+```
+
+---
+author:
+- name: `r myoptions$email`
+  affiliation: `r myoptions$affiliation`
+---
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+library(ggplot2)
+library(RColorBrewer)
+library(reshape2)
+library(DT)
+library(RCurl)
+library(htmltools)
+library(knitr)
+library(kableExtra)
+
+source('reportFunctions.R')
+source('Pipeline.R')
+
+files<-read.csv("gsea_files.csv", as.is=TRUE)
+resFile<-"sub.Rmd"
+save_gsea_rmd(files, resFile)
+```
+
+```{r, child=resFile} 
+```
