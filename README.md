@@ -1,53 +1,73 @@
-# RNAseq pipeline
-The RNAseq is performed by [CQSperl](https://github.com/shengqh/cqsperl) using function of `performRNASeq_gencode_mm10`
-The main pipeline config file is `20240801_11636_RNAseq_mouse.rnaseq.pl`
+This repo contains the codes used for P11636 project.
 
-After executing the config file, the scripts will be created and ready to be submitted to the SLURM system.
-The scripts of each step were collected to `pipeline_codes` folder.
+# RNA-seq Pipeline  
 
-Basically, the pipeline includes below steps
-1. paired_end_validation for each sample
-2. fastqc_raw: QC step for each sample
-3. cutadapt: trimming the adapter sequence from fastq files
-4. cutadapt result validation
-5. fastqc after the cutadapt step
-6. fastqc_raw_summary: building QC report for all samples
-7. star_featurecount:  mapping the reads to reference genome features
-8. genetable: create the gene count table
-9. DESeq2: differential analysis
-10. WebGestalt: ORA pathway enrichment
-11. GSEA: gene set enrichment analysis using all genes from the DESeq2 results
-12. Final Report
+This RNA-seq analysis is performed using [CQSperl](https://github.com/shengqh/cqsperl) via the `performRNASeq_gencode_mm10` function.  
 
+The main pipeline configuration file is:  
+**`20240801_11636_RNAseq_mouse.rnaseq.pl`**  
 
-# Extra Enrichment Analysis
-In addition to the default pathway enrichment (ORA and GSEA) from above pipeline, we added below items
-1. More GeneSets from multiple sources are included (the gmt and description files are under `enrichment_plots/geneset`)
-        - Actin_Cell_Mobility (customized)
-        - EMT (customized)
-        - PI3K (customized)
-        - Integrin (customized)
-        - Wnt_signaling (customized)
-        - P53_signaling (customized)
-        - Innate_immune_response (customized)
-        - HallmarkGenes (from msigdb)
-        - CuratedGeneSets (from msigdb)
-        - RegulatoryTargetGeneSets (from msigdb)
-        - OntologyGeneSets (from msigdb)
-        - CellTypeSignatureGeneSets (from msigdb)
-        - GO_BP (from webgestaltR)
-        - GO_CC (from webgestaltR)
-        - GO_MF (from webgestaltR)
-        - KEGG (from webgestaltR)
-        - Reactome (from webgestaltR)
-        - Wikipathway (from webgestaltR)
-2. Style adjustment for the figures
-3. PathView plots for
-    1. 'mmu04310', 'Wnt signaling pathway'
-    2. 'mmu04810', 'Regulation of actin cytoskeleton'
-    3. 'mmu04151', 'PI3K-Akt signaling pathway'
-    4. 'mmu04115', 'p53 signaling pathway'
+Executing this file generates analysis scripts, which can then be submitted to the **SLURM** system. All step-specific scripts are collected in the `pipeline_codes` folder.  
 
+### Pipeline Workflow  
 
-First, `run_webgestaltr_and_GSEA.r` need to be performed to generate the ORA and GSEA results for each dataset.
-After that, `enrichment_plots/heather_report.rmd` can be rendered to build the html report file.
+The pipeline consists of the following steps:  
+
+1. **Paired-end validation** – Verifies paired-end sequencing data for each sample.  
+2. **FastQC (raw)** – Quality control of raw FASTQ files.  
+3. **Cutadapt** – Trims adapter sequences from reads.  
+4. **Cutadapt validation** – Ensures trimming success.  
+5. **FastQC (post-trimming)** – Quality control after adapter trimming.  
+6. **FastQC summary** – Generates a QC report for all samples.  
+7. **STAR + featureCounts** – Maps reads to the reference genome and quantifies gene expression.  
+8. **Gene table generation** – Creates the gene count table.  
+9. **DESeq2** – Performs differential expression analysis.  
+10. **WebGestalt ORA** – Over-representation pathway enrichment analysis.  
+11. **GSEA** – Gene set enrichment analysis (GSEA) using all genes from DESeq2 results.  
+12. **Final report** – Compiles results into a summary report.  
+
+---
+
+# Additional Enrichment Analysis  
+
+Beyond the default ORA and GSEA pathway enrichment analyses, the pipeline includes:  
+
+### 1. Expanded Gene Sets  
+Additional gene sets for pathway enrichment analysis are available in `enrichment_plots/geneset/`:  
+
+- **Custom gene sets:**  
+  - Actin_Cell_Mobility  
+  - EMT  
+  - PI3K  
+  - Integrin  
+  - Wnt_signaling  
+  - P53_signaling  
+  - Innate_immune_response  
+
+- **Publicly available gene sets:**  
+  - Hallmark Genes (MSigDB)  
+  - Curated Gene Sets (MSigDB)  
+  - Regulatory Target Gene Sets (MSigDB)  
+  - Ontology Gene Sets (MSigDB)  
+  - Cell Type Signature Gene Sets (MSigDB)  
+  - GO_BP, GO_CC, GO_MF (WebGestaltR)  
+  - KEGG (WebGestaltR)  
+  - Reactome (WebGestaltR)  
+  - WikiPathways (WebGestaltR)  
+
+### 2. Figure Style Enhancements  
+Figures have been optimized for clarity and presentation.  
+
+### 3. Pathway Visualization (Pathview)  
+Pathway-specific visualizations are generated for:  
+
+- **mmu04310** – Wnt signaling pathway  
+- **mmu04810** – Regulation of actin cytoskeleton  
+- **mmu04151** – PI3K-Akt signaling pathway  
+- **mmu04115** – p53 signaling pathway  
+
+### Running the Enrichment Analysis  
+
+1. Run **`run_webgestaltr_and_GSEA.r`** to generate ORA and GSEA results.  
+2. Render **`enrichment_plots/heather_report.rmd`** to generate an HTML report.  
+
