@@ -2,6 +2,8 @@ library(ggplot2)
 library(scales)
 library(dplyr)
 library(EnhancedVolcano) # used to add more annotations
+library(ggrepel)
+
 
 # the working path of volcano plot in ACCRE is /nobackup/h_vivian_weiss_lab/20240801_11636_RNAseq_mouse/deseq2_proteincoding_genetable/result
 
@@ -134,7 +136,30 @@ pnew <- p +
         force = 3,
         min.segment.length = 0.2
     )
-    
+
+
+# functions
+openPlot<-function(filePrefix, format, width_inch, height_inch, figureName){
+  fileName<-paste0(filePrefix, ".", tolower(format))
+  if(format == "PDF"){
+    pdf(fileName, width=width_inch, height=height_inch, useDingbats=FALSE)
+  }else if(format == "TIFF"){
+    tiff(filename=fileName, width=width_inch, height=height_inch, units="in", res=300)
+  }else {
+    png(filename=fileName, width=width_inch, height=height_inch, units="in", res=300)
+  }
+  cat("saving", figureName, "to ", fileName, "\n")
+}
+
+drawPlot<-function(filePrefix, outputFormat, width_inch, height_inch, p, figureName){
+  for(format in outputFormat){  
+    openPlot(filePrefix, format, width_inch, height_inch, figureName)  
+    print(p)
+    dev.off()
+  }
+}
+
 # Save the improved plot
+outputFormat <- c("PDF", "PNG")
 filePrefix <- paste0(prefix, "_DESeq2_volcanoEnhanced")
 drawPlot(filePrefix, outputFormat, 7, 7, pnew, "Volcano")
